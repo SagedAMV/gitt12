@@ -55,7 +55,7 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
  ) {padding ->
   Column(Modifier.fillMaxSize().padding(padding)) {
    AnimatedVisibility(s.busy){LinearProgressIndicator(Modifier.fillMaxWidth())}
-   if(!showShell) AuthScreen(s,vm)
+   if(!showShell) StartScreen(s,vm)
    else if(s.mustChangePassword && s.tab !in listOf("local","github")) PasswordScreen(s,vm,true)
    else {
     if(s.signedIn && s.role=="ADMIN" && s.tab!="github") Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(horizontal=20.dp),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
@@ -75,34 +75,6 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
     }
    }
   }
- }
-}
-@Composable private fun AuthScreen(s:VaultState,vm:VaultViewModel) {
- var register by rememberSaveable{mutableStateOf(false)}
- var name by rememberSaveable{mutableStateOf("")}
- var pass by remember{mutableStateOf("")}
- var confirm by remember{mutableStateOf("")}
- var visible by remember{mutableStateOf(false)}
- var connection by remember{mutableStateOf(false)}
- if(connection)FormDialog("اضبط الاتصال",listOf("Project URL: https://…supabase.co","المفتاح العام"),onDismiss={connection=false}){v->vm.configure(v[0],v[1]);connection=false}
- Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(28.dp),verticalArrangement=Arrangement.spacedBy(18.dp)) {
-  Spacer(Modifier.height(28.dp))
-  val transition=rememberInfiniteTransition(label="shield")
-  val float by transition.animateFloat(-4f,4f,infiniteRepeatable(tween(2400,easing=FastOutSlowInEasing),RepeatMode.Reverse),label="float")
-  Box(Modifier.offset(y=float.dp).size(76.dp).background(MaterialTheme.colorScheme.primaryContainer,RoundedCornerShape(24.dp)),contentAlignment=Alignment.Center){Icon(Icons.Rounded.Shield,null,tint=MaterialTheme.colorScheme.primary,modifier=Modifier.size(40.dp))}
-  Text("يا هلا فيك",style=MaterialTheme.typography.headlineLarge,fontWeight=FontWeight.Bold)
-  Text("ملفاتك وين ماتروح",color=MaterialTheme.colorScheme.onSurfaceVariant)
-  AnimatedContent(register,label="auth-title"){r->Text(if(r)"أبغى حساب" else "يا هلا",style=MaterialTheme.typography.titleLarge)}
-  OutlinedTextField(name,{name=it.lowercase().take(32)},Modifier.fillMaxWidth(),label={Text("اسمك")},leadingIcon={Icon(Icons.Rounded.PersonOutline,null)},singleLine=true,shape=RoundedCornerShape(16.dp),supportingText={if(register)Text("اسمك: 3–32 حرف")})
-  OutlinedTextField(pass,{pass=it.take(128)},Modifier.fillMaxWidth(),label={Text("الباسورد")},leadingIcon={Icon(Icons.Rounded.LockOpen,null)},trailingIcon={MotionIconButton(onClick={visible=!visible}){Icon(if(visible)Icons.Rounded.VisibilityOff else Icons.Rounded.Visibility,"ورّي أو خبّي")}},singleLine=true,visualTransformation=if(visible)VisualTransformation.None else PasswordVisualTransformation(),shape=RoundedCornerShape(16.dp))
-  AnimatedVisibility(register){OutlinedTextField(confirm,{confirm=it},Modifier.fillMaxWidth(),label={Text("عيد الباسورد")},visualTransformation=PasswordVisualTransformation(),singleLine=true,shape=RoundedCornerShape(16.dp),supportingText={Text("الباسورد: 12+ حرف")})}
-  val valid=name.matches(Regex("[a-z0-9_]{3,32}"))&&pass.isNotEmpty()&&(!register||pass.length>=12&&pass==confirm)
-  MotionButton(onClick={if(register)vm.register(name,pass) else vm.login(name,pass);pass="";confirm=""},enabled=valid&&!s.busy,modifier=Modifier.fillMaxWidth().height(54.dp),shape=RoundedCornerShape(16.dp)) {Text(if(register)"اطلب حساب" else "ادخل");Spacer(Modifier.width(10.dp));Icon(Icons.AutoMirrored.Rounded.ArrowForward,null)}
-  MotionTextButton(onClick={register=!register;pass="";confirm=""},modifier=Modifier.align(Alignment.CenterHorizontally)){Text(if(register)"عندي حساب" else "أبغى حساب")}
-  MotionTextButton(onClick={connection=true},modifier=Modifier.align(Alignment.CenterHorizontally)){Icon(Icons.Rounded.SettingsEthernet,null);Spacer(Modifier.width(8.dp));Text("إعداد الاتصال")}
-  HorizontalDivider()
-  MotionTextButton(onClick={vm.tab("github")},modifier=Modifier.align(Alignment.CenterHorizontally)){Icon(Icons.Rounded.FolderOpen,null);Spacer(Modifier.width(8.dp));Text("افتح saged7")}
-  MotionTextButton(onClick={vm.tab("local")},modifier=Modifier.align(Alignment.CenterHorizontally)){Icon(Icons.Rounded.OfflinePin,null);Spacer(Modifier.width(8.dp));Text("شوف ملفاتك")}
  }
 }
 @Composable private fun Hero(title:String,subtitle:String,icon:ImageVector) {
