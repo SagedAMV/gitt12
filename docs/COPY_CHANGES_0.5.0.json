@@ -1,0 +1,712 @@
+[
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+    "before": "لا توجد بيانات",
+    "after": "مافي بيانات"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+    "before": "التنزيل يتجاوز الحد الآمن",
+    "after": "الملف كبير مرّة"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+    "before": "الحد المؤقت للرفع 8 MiB لكل ملف",
+    "after": "حدّه 8MiB"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+    "before": "تم الإلغاء",
+    "after": "وقفناها"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم الإلغاء",
+    "after": "وقفناها"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم حفظ إعدادات الاتصال. يمكنك تسجيل الدخول.",
+    "after": "الاتصال جاهز"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم إرسال طلبك. انتظر موافقة المشرف.",
+    "after": "طلبك عند المشرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم تسجيل الخروج",
+    "after": "طلعت خلاص"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم تغيير كلمة المرور. سجّل الدخول مجدداً.",
+    "after": "ادخل بالباسورد الجديد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم تحديث الحساب والصلاحيات",
+    "after": "حسابك تحدّث"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم تحديث المستودعات",
+    "after": "حدّثنا المستودعات"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم تنفيذ العملية",
+    "after": "ضبطت"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "أضيف التنزيل إلى قائمة المهام",
+    "after": "بدأنا التنزيل"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "المستودع كاملاً",
+    "after": "المستودع كله"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "الحد الأقصى 1000 ملف",
+    "after": "حدّك 1000 ملف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "الحد المؤقت للمجموعة 200 MiB",
+    "after": "حدّها 200MiB"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "الملف يتجاوز حد التنزيل 90 MiB",
+    "after": "حدّه 90MiB"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "سيتم تنزيل النسخة الجديدة؛ تبقى القديمة حتى اكتمال التنزيل",
+    "after": "بننزّل الجديد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+    "before": "تم فحص النسخ المحلية؛ لا يُستبدل أي ملف دون اختيارك",
+    "after": "فحصنا ملفاتك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+    "before": "حذف",
+    "after": "امسح"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+    "before": "تم",
+    "after": "تمام"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+    "before": "الرئيسية",
+    "after": "البداية"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+    "before": "بيكون مستودع عام على saged7. الإنشاء يحتاج توكن حساب saged7 بصلاحية Administration: Read and write.",
+    "after": "بيشوفه أي أحد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+    "before": "القراءة العامة لا تحتاج توكناً. للرفع، أنشئ Fine-grained personal access token من GitHub، وحدد مستودعات saged7 المطلوبة مع Contents: Read and write.",
+    "after": "التوكن للكتابة بس"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+    "before": "يجب أن يملك صاحب التوكن صلاحية الكتابة فعلياً. يحفظ التطبيق التوكن مشفراً على الجهاز، ويرسله إلى api.github.com فقط. لا يُرسل إلى Supabase ولا يظهر في السجلات.",
+    "after": "محفوظ بجهازك بس"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+    "before": "تقدر تمسحه من هنا. إلغاء صلاحيته يتم من GitHub. لا ترسله بالمحادثة.",
+    "after": "لا تشارك توكنك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+    "before": "استخدم حساب saged7",
+    "after": "ادخل بحساب saged7"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+    "before": "اختار مستودع عام",
+    "after": "اختار مستودع عام"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+    "before": "حُذف التوكن المحلي",
+    "after": "مسحنا التوكن"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "هذه النسخة مخصصة لمشروع GitHub Vault الجديد فقط",
+    "after": "المشروع مش مضبوط"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "أدخل مفتاح anon أو publishable العام",
+    "after": "حط المفتاح العام"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "يُمنع استخدام مفتاح إداري داخل التطبيق",
+    "after": "لا تحط إداري"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "إعدادات الاتصال غير مكتملة. أضف Supabase URL والمفتاح العام ثم أعد البناء.",
+    "after": "كمّل إعداد الاتصال"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "يرجى تسجيل الدخول",
+    "after": "ادخل أول"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "تعذر الاتصال بالشبكة. تحقق من الإنترنت ثم أعد المحاولة.",
+    "after": "النت مش شغال"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "كلمة المرور الحالية غير صحيحة",
+    "after": "الباسورد مش صح"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "تعذر التحقق من الدخول. راجع بياناتك وحالة الحساب أو سجّل الدخول مجدداً.",
+    "after": "راجع بياناتك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "يجب تغيير كلمة المرور المؤقتة أولاً",
+    "after": "غيّر الباسورد أول"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "الحساب غير نشط أو لا يملك صلاحية هذه العملية.",
+    "after": "ما معك صلاحية"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "العنصر غير موجود أو لم يعد متاحاً لحسابك.",
+    "after": "مش موجود"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "يوجد تعارض أو تغيّر الملف. حدّث القائمة وراجع العملية قبل إعادة المحاولة.",
+    "after": "الملف اتغيّر"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "تجاوزت العملية الحدود الآمنة لحجم الملفات أو عددها.",
+    "after": "تعدّيت الحد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "محاولات كثيرة. انتظر قليلاً ثم حاول مجدداً.",
+    "after": "اهدأ شوي"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "تعذر إكمال الطلب لدى GitHub. حاول لاحقاً.",
+    "after": "GitHub مشغول"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "تحقق من البيانات والمسارات. كلمة المرور الجديدة يجب أن تكون بين 12 و128 حرفاً.",
+    "after": "راجع اللي كتبت"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "تعذر تنفيذ العملية. أعد المحاولة، وإن استمر الخطأ راجع إعدادات الخادم.",
+    "after": "ما ضبطت العملية"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+    "before": "حدث خطأ غير متوقع",
+    "after": "ما ضبطت"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ملفاتك. بإذنٍ منك.",
+    "after": "ملفاتك معك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "خزنة آمنة",
+    "after": "ملفاتك بأمان"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "دخول",
+    "after": "ادخل"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "الإدارة",
+    "after": "إدارتك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "المستخدمون",
+    "after": "الناس"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "سجل النشاط",
+    "after": "وش صار"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "إعداد اتصال Supabase",
+    "after": "اضبط الاتصال"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "مفتاح anon أو publishable العام فقط",
+    "after": "المفتاح العام"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ملفاتك،\nفي مكانٍ تثق به.",
+    "after": "يا هلا فيك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تصفح مستودعاتك الخاصة واحفظ ما تحتاجه لتصل إليه حتى دون اتصال.",
+    "after": "ملفاتك وين ماتروح"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "إنشاء طلب حساب",
+    "after": "أبغى حساب"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "أهلاً بعودتك",
+    "after": "يا هلا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "اسم المستخدم",
+    "after": "اسمك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "3–32 حرفاً: a-z و0-9 و _",
+    "after": "اسمك: 3–32 حرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "12 حرفاً على الأقل. يتطلب الحساب موافقة المشرف.",
+    "after": "الباسورد: 12+ حرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "بحث",
+    "after": "دوّر"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تأكيد الرفع",
+    "after": "نرفعها؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "رفع",
+    "after": "ارفع"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "مجلد جديد",
+    "after": "مجلد جديد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "نقل أو إعادة تسمية",
+    "after": "غيّر مكانه واسمه"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "المسار النسبي داخل المستودع",
+    "after": "المسار الجديد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "حذف من المستودع؟",
+    "after": "نمسحه من GitHub؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ابحث عن مستودع",
+    "after": "دوّر مستودع"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ابحث في هذا المجلد",
+    "after": "دوّر هنا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لا توجد مستودعات بعد",
+    "after": "مافي مستودعات"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "سيظهر هنا كل مستودع يمنحك المشرف صلاحية الوصول إليه.",
+    "after": "اسأل المشرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "رفع ملفات",
+    "after": "ارفع ملفات"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "رفع مجلد",
+    "after": "ارفع مجلد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "هذا المجلد فارغ",
+    "after": "المجلد فاضي"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "أضف ملفات أو عُد إلى المجلد السابق.",
+    "after": "ارفع أول ملف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تنزيل ZIP",
+    "after": "نزّل ZIP"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تنزيل الملف",
+    "after": "نزّل الملف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "نقل / إعادة تسمية",
+    "after": "غيّر مكانه واسمه"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "حذف",
+    "after": "امسح"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "حذف النسخة المحلية؟",
+    "after": "نمسحه من جهازك؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "يُحذف الملف من هذا الجهاز فقط، ولا يتغير GitHub.",
+    "after": "GitHub مايتغيّر"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "دائماً معك",
+    "after": "ملفاتك معك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "قد لا تعكس النسخ المحلية أحدث محتوى في GitHub. تبقى ملفاتك بعد سحب الصلاحية.",
+    "after": "ملفاتك تبقى هنا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ابحث في ملفاتك المحفوظة",
+    "after": "دوّر بملفاتك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لا توجد ملفات محفوظة",
+    "after": "مافي ملفات"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "نزّل ملفاتك أولاً لتجدها هنا دون اتصال.",
+    "after": "نزّل أول ملف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "حُذف من المستودع · النسخة المحلية محفوظة",
+    "after": "نسختك لسه هنا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "توجد نسخة أحدث",
+    "after": "فيه نسخة جديدة"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "الملف المحلي غير موجود",
+    "after": "الملف مش موجود"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "فتح باستخدام",
+    "after": "افتح بواسطة"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لا يمكن فتح الملف. ثبّت تطبيقاً يدعم هذا النوع.",
+    "after": "جيب تطبيق يفتحه"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "كل عملية، بوضوح",
+    "after": "وش يصير؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "التنزيلات والرفع · نتائج مستقلة لكل ملف",
+    "after": "ارفع ونزّل وتابع"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لا توجد مهام بعد",
+    "after": "مافي شغل"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ستظهر هنا حالة الرفع والتنزيل وخيارات إعادة المحاولة.",
+    "after": "الشغل بيظهر هنا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "اكتمل",
+    "after": "خلص"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "إنشاء حساب بكلمة مرور مؤقتة",
+    "after": "ضيف حساب"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "كلمة المرور المؤقتة (12 حرفاً على الأقل)",
+    "after": "باسورد مؤقت"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تعيين كلمة مرور مؤقتة",
+    "after": "غيّر الباسورد"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "اربط مستودعاً أولاً من الإدارة.",
+    "after": "اربط مستودع أول"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تم",
+    "after": "تمام"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "الأشخاص والصلاحيات",
+    "after": "الناس وصلاحياتهم"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ابحث باسم المستخدم",
+    "after": "دوّر اسم"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "المشرف",
+    "after": "المشرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ربط مستودع من الحساب المعتمد",
+    "after": "اربط مستودع"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "اسم المستودع في GitHub",
+    "after": "اسم المستودع"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "إزالة الربط؟",
+    "after": "نفك الربط؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لن يُحذف المستودع أو ملفاته من GitHub. تُسحب صلاحيات الوصول إليه داخل التطبيق.",
+    "after": "GitHub ماينمسح"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "أنت تتحكم بالوصول",
+    "after": "مين يدخل؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ربط المستودعات وإدارتها دون كشف مفاتيح GitHub",
+    "after": "اربط واضبط"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "متاح للربط",
+    "after": "تقدر تربطه"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لم تُربط مستودعات بعد",
+    "after": "مافي ربط"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "اربط مستودعاً من حساب GitHub App المعتمد.",
+    "after": "اربط أول مستودع"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "سجل موثوق",
+    "after": "وش صار؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "العمليات الحساسة ونتائجها · لا يُسجل التصفح العادي",
+    "after": "شوف اللي صار"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "بحث باسم العملية",
+    "after": "دوّر عملية"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ناجح",
+    "after": "ضبط"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "فاشل",
+    "after": "ما ضبط"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "بدأت",
+    "after": "بدأنا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "لا توجد نتائج",
+    "after": "مافي نتائج"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "عدّل الفلاتر أو حاول التحديث.",
+    "after": "غيّر بحثك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تسجيل الخروج؟",
+    "after": "بتطلع؟"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ستُلغى المهام الجارية وتبقى الملفات المحلية المحفوظة على جهازك.",
+    "after": "بنوقّف الشغل"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "حساب المشرف",
+    "after": "أنت المشرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "حساب مستخدم · تصفح وتنزيل",
+    "after": "حسابك هنا"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "المظهر",
+    "after": "الشكل"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "النظام",
+    "after": "زي الجهاز"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "فاتح",
+    "after": "فاتح"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "داكن",
+    "after": "غامق"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "خصوصيتك أولاً",
+    "after": "ملفاتك بأمان"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "تُحفظ الملفات داخل مساحة التطبيق الخاصة. لا تُحذف تلقائياً عند تعطيل الحساب أو سحب الصلاحية. حذف التطبيق قد يزيل هذه الملفات.",
+    "after": "حذف التطبيق يمسحها"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "رفع saged7 يدعم حتى 90 MiB للملف. المسار السحابي القديم يبقى بحده السابق.",
+    "after": "رفع saged7: 90MiB"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "خطوة لحماية حسابك",
+    "after": "أمّن حسابك"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "غيّر كلمة المرور المؤقتة قبل الوصول إلى المستودعات",
+    "after": "غيّر الباسورد أول"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "12–128 حرفاً. سيُطلب منك تسجيل الدخول مجدداً.",
+    "after": "الباسورد: 12–128 حرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "نشط",
+    "after": "شغّال"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "معطل",
+    "after": "موقوف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "ينتظر الموافقة",
+    "after": "ينتظر المشرف"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "مرفوض",
+    "after": "ما انقبل"
+  },
+  {
+    "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+    "before": "الرئيسية",
+    "after": "البداية"
+  }
+]

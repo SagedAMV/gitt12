@@ -1,1 +1,13 @@
 push.sh
+.env
+.env.*
+!.env.example
+local.properties
+.gradle/
+**/build/
+*.jks
+*.keystore
+.idea/
+node_modules/
+.tooling/
+*.log

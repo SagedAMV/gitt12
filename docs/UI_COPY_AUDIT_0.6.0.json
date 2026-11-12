@@ -1,0 +1,2999 @@
+{
+  "scope": "Every Kotlin/XML app source; Arabic literals and template fragments; all dynamic UI templates manually reviewed",
+  "scanned_files": 63,
+  "arabic_occurrences": 427,
+  "unique_literals": 294,
+  "violations": [],
+  "entries": [
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 29,
+      "text": "المشروع مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 30,
+      "text": "حط المفتاح العام",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 33,
+      "text": "لا تحط إداري",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 46,
+      "text": "كمّل إعداد الاتصال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 52,
+      "text": "فشل الاتصال (${it.code})",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 57,
+      "text": "ادخل أول",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 92,
+      "text": "النت مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 94,
+      "text": "الباسورد مش صح",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 94,
+      "text": "راجع بياناتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 95,
+      "text": "غيّر الباسورد أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 95,
+      "text": "حسابك مش مفعّل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 96,
+      "text": "مش موجود",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 97,
+      "text": "الملف اتغيّر",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 98,
+      "text": "تعدّيت الحد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 99,
+      "text": "اهدأ شوي",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 100,
+      "text": "GitHub مشغول",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 101,
+      "text": "راجع اللي كتبت",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 102,
+      "text": "ما ضبطت العملية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/network/VaultApi.kt",
+      "line": 104,
+      "text": "ما ضبطت",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/LaunchScene.kt",
+      "line": 46,
+      "text": "ملفاتك معك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/LaunchScene.kt",
+      "line": 47,
+      "text": "المس وتخطّى",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/MotionNotice.kt",
+      "line": 50,
+      "text": "تمام",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 42,
+      "text": "عندك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 42,
+      "text": "الشغل",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 42,
+      "text": "حسابك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 53,
+      "text": "ملفاتك معك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 53,
+      "text": "ملفاتك بأمان",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 53,
+      "text": "حسابك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 53,
+      "text": "ادخل",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 62,
+      "text": "ملفاتي",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 62,
+      "text": "إدارتك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 62,
+      "text": "الناس",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 62,
+      "text": "وش صار",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 87,
+      "text": "اضبط الاتصال",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 87,
+      "text": "المفتاح العام",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 93,
+      "text": "يا هلا فيك",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 94,
+      "text": "ملفاتك وين ماتروح",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 95,
+      "text": "أبغى حساب",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 95,
+      "text": "يا هلا",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 96,
+      "text": "اسمك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 96,
+      "text": "اسمك: 3–32 حرف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 97,
+      "text": "الباسورد",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 97,
+      "text": "ورّي أو خبّي",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 98,
+      "text": "عيد الباسورد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 98,
+      "text": "الباسورد: 12+ حرف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 100,
+      "text": "اطلب حساب",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 100,
+      "text": "ادخل",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 101,
+      "text": "عندي حساب",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 101,
+      "text": "أبغى حساب",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 102,
+      "text": "إعداد الاتصال",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 104,
+      "text": "افتح saged7",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 105,
+      "text": "شوف ملفاتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 119,
+      "text": "دوّر",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 129,
+      "text": "نرفعها؟",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 129,
+      "text": "الموجود ممكن يتبدّل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 129,
+      "text": "ارفع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 129,
+      "text": "خلّيه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 130,
+      "text": "مجلد جديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 130,
+      "text": "غيّر مكانه واسمه",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 130,
+      "text": "المسار الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 131,
+      "text": "نمسحه من GitHub؟",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 131,
+      "text": "نسختك بتبقى هنا",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 133,
+      "text": "أهلاً، ${s.username}",
+      "words": 2,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 133,
+      "text": "مستودع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 133,
+      "text": "عندك ${s.repositories.size} مستودع",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 133,
+      "text": "عندك ${s.items.size} عنصر",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 134,
+      "text": "دوّر مستودع",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 134,
+      "text": "دوّر هنا",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 136,
+      "text": "مستودعاتك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 136,
+      "text": "حدّث",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 137,
+      "text": "مافي مستودعات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 137,
+      "text": "اسأل المشرف",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 148,
+      "text": "ارجع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 148,
+      "text": "البداية",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 148,
+      "text": "حدّث",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 150,
+      "text": "ارفع ملفات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 151,
+      "text": "ارفع مجلد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 152,
+      "text": "مجلد جديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 154,
+      "text": "نزّل المجلد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 154,
+      "text": "نزّل ${s.selected.size} عناصر",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 154,
+      "text": "شيل التحديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 155,
+      "text": "المجلد فاضي",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 155,
+      "text": "ارفع أول ملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 163,
+      "text": "مجلد",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 164,
+      "text": "خيارات",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 165,
+      "text": "نزّل ZIP",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 165,
+      "text": "نزّل الملف",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 167,
+      "text": "غيّر مكانه واسمه",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 168,
+      "text": "امسح",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 182,
+      "text": "نمسحه من جهازك؟",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 182,
+      "text": "GitHub مايتغيّر",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 188,
+      "text": "ملفاتك معك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 188,
+      "text": "عندك ${files.size} ملف",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 189,
+      "text": "ملفاتك تبقى هنا",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 190,
+      "text": "دوّر بملفاتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 191,
+      "text": "ارجع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 191,
+      "text": "شوف الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 192,
+      "text": "مافي ملفات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 192,
+      "text": "نزّل أول ملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 197,
+      "text": "امسحه هنا",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 198,
+      "text": "نسختك لسه هنا",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 199,
+      "text": "فيه نسخة جديدة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 200,
+      "text": "الملف مش موجود",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 200,
+      "text": "افتح بواسطة",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 200,
+      "text": "جيب تطبيق يفتحه",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 200,
+      "text": "افتح",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 200,
+      "text": "نزّل الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 208,
+      "text": "وش يصير؟",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 208,
+      "text": "ارفع ونزّل وتابع",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 209,
+      "text": "مافي شغل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 209,
+      "text": "الشغل بيظهر هنا",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 215,
+      "text": "خلص",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 222,
+      "text": "جرّب ثاني",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 222,
+      "text": "خلّيه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 230,
+      "text": "ضيف حساب",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 230,
+      "text": "اسمك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 230,
+      "text": "باسورد مؤقت",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 231,
+      "text": "غيّر الباسورد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 231,
+      "text": "الباسورد الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 232,
+      "text": "صلاحيات ${target?.text(",
+      "words": 2,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 232,
+      "text": "اربط مستودع أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 232,
+      "text": "تمام",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 234,
+      "text": "الناس وصلاحياتهم",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 234,
+      "text": "عندك ${s.users.size} حساب",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 235,
+      "text": "ضيف مستخدم",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 235,
+      "text": "حدّث",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 236,
+      "text": "دوّر اسم",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 239,
+      "text": "المشرف",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 242,
+      "text": "وافق",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 243,
+      "text": "ارفض",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 245,
+      "text": "وقّفه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 245,
+      "text": "شغّله",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 246,
+      "text": "الصلاحيات",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 247,
+      "text": "الباسورد",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 256,
+      "text": "اربط مستودع",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 256,
+      "text": "اسم المستودع",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 257,
+      "text": "نفك الربط؟",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 257,
+      "text": "GitHub ماينمسح",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 259,
+      "text": "مين يدخل؟",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 259,
+      "text": "اربط واضبط",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 260,
+      "text": "اربط مستودع",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 260,
+      "text": "دوّر مستودعات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 260,
+      "text": "حدّث",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 261,
+      "text": "تقدر تربطه",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 262,
+      "text": "اربطه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 266,
+      "text": "فك الربط",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 268,
+      "text": "مافي ربط",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 268,
+      "text": "اربط أول مستودع",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 274,
+      "text": "وش صار؟",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 274,
+      "text": "شوف اللي صار",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 275,
+      "text": "دوّر عملية",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 276,
+      "text": "الكل",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 276,
+      "text": "ضبط",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 276,
+      "text": "ما ضبط",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 276,
+      "text": "بدأنا",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 276,
+      "text": "دوّر",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 282,
+      "text": "الفاعل: ${log.text(",
+      "words": 2,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 284,
+      "text": "مافي نتائج",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 284,
+      "text": "غيّر بحثك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 285,
+      "text": "اللي قبل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 285,
+      "text": "اللي بعد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 291,
+      "text": "بتطلع؟",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 291,
+      "text": "بنوقّف الشغل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 293,
+      "text": "أنت المشرف",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 293,
+      "text": "حسابك هنا",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 294,
+      "text": "الشكل",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 295,
+      "text": "زي الجهاز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 295,
+      "text": "فاتح",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 295,
+      "text": "غامق",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 296,
+      "text": "غيّر الباسورد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 297,
+      "text": "إدارة السحابة",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 298,
+      "text": "ملفاتك بأمان",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 299,
+      "text": "حذف التطبيق يمسحها",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 300,
+      "text": "رفع saged7: 90MiB",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 302,
+      "text": "اطلع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 308,
+      "text": "أمّن حسابك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 308,
+      "text": "غيّر الباسورد أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 310,
+      "text": "اطلع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 313,
+      "text": "غيّر الباسورد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 313,
+      "text": "سكّر",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 317,
+      "text": "الباسورد القديم",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 317,
+      "text": "الباسورد الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 317,
+      "text": "عيد الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 318,
+      "text": "الباسورد: 12–128 حرف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 319,
+      "text": "احفظ الباسورد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 324,
+      "text": "احفظ",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 324,
+      "text": "خلّيه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 326,
+      "text": "تمام",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 326,
+      "text": "خلّيه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "بالطابور",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "شغّال",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "بنجرّب ثاني",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "خلصت",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "ما ضبطت",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "وقفناها",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "شغّال",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "موقوف",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "ينتظر المشرف",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "ما انقبل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/core/ui/VaultApp.kt",
+      "line": 329,
+      "text": "بدأنا",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 46,
+      "text": "الاتصال جاهز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 49,
+      "text": "طلبك عند المشرف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 55,
+      "text": "طلعت خلاص",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 56,
+      "text": "ادخل بالباسورد الجديد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 59,
+      "text": "حسابك تحدّث",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 63,
+      "text": "حدّثنا المستودعات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 68,
+      "text": "ضبطت",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 72,
+      "text": "بدأنا التنزيل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 76,
+      "text": "المستودع كله",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 76,
+      "text": "${paths.size} عناصر",
+      "words": 2,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 82,
+      "text": "وقفناها",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 88,
+      "text": "حدّك 1000 ملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 94,
+      "text": "حدّها 200MiB",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 104,
+      "text": "رفضنا $rejected ملفات",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 104,
+      "text": "بالطابور $queued ملفات",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 110,
+      "text": "حدّه 90MiB",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 116,
+      "text": "بننزّل الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/auth/VaultViewModel.kt",
+      "line": 127,
+      "text": "فحصنا ملفاتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+      "line": 36,
+      "text": "مافي بيانات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+      "line": 42,
+      "text": "الملف كبير مرّة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+      "line": 78,
+      "text": "حدّه 8MiB",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/downloads/TransferWorker.kt",
+      "line": 85,
+      "text": "وقفناها",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 16,
+      "text": "غيّر اسم المستودع",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 18,
+      "text": "المسار مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 21,
+      "text": "التوكن مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 21,
+      "text": "التوكن مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 22,
+      "text": "النسخة مش مضبوطة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 44,
+      "text": "التوكن مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 45,
+      "text": "جرّب بعدين",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 46,
+      "text": "ما معك صلاحية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 47,
+      "text": "مش موجود",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 48,
+      "text": "راجع الاسم والنسخة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 49,
+      "text": "الطلب ما ضبط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 54,
+      "text": "مافي رد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 67,
+      "text": "هذا مش مجلد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 68,
+      "text": "المجلد كبير مرّة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 73,
+      "text": "هذا مش ملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 80,
+      "text": "المستودع كبير مرّة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 88,
+      "text": "مافي بيانات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 88,
+      "text": "نزّله وشوفه",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 88,
+      "text": "نزّله وافتحه",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 93,
+      "text": "التوكن مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 99,
+      "text": "حط التوكن أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 101,
+      "text": "ادخل بحساب saged7",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 105,
+      "text": "الملف فوق الحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 107,
+      "text": "حط التوكن أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 109,
+      "text": "اختار مستودع عام",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubClient.kt",
+      "line": 110,
+      "text": "ما معك صلاحية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 44,
+      "text": "مستودع جديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 45,
+      "text": "بيشوفه أي أحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 46,
+      "text": "حسابك: saged7",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 48,
+      "text": "اسم المستودع",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 49,
+      "text": "سوّه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 49,
+      "text": "خلّيه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 50,
+      "text": "توكنك هنا",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 51,
+      "text": "التوكن للكتابة بس",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 54,
+      "text": "محفوظ بجهازك بس",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 55,
+      "text": "توكنك محفوظ هنا",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 56,
+      "text": "توكن بداله",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 56,
+      "text": "التوكن",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 57,
+      "text": "لا تشارك توكنك",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 58,
+      "text": "احفظه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 58,
+      "text": "امسحه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 58,
+      "text": "سكّر",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 59,
+      "text": "نرفع الملفات؟",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 60,
+      "text": "${pending!!.size} ملفات",
+      "words": 2,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 61,
+      "text": "الموجود ممكن يتبدّل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 62,
+      "text": "حدّه 90MiB",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 64,
+      "text": "البداية",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 66,
+      "text": "ارفعها",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 66,
+      "text": "خلّيه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 73,
+      "text": "ارجع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 74,
+      "text": "تفرّج بس",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 81,
+      "text": "مستودعات saged7",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 82,
+      "text": "افتح، شوف، ونزّل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 82,
+      "text": "البداية",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 84,
+      "text": "توكنك محفوظ هنا",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 84,
+      "text": "تقدر تتفرّج",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 87,
+      "text": "مستودع جديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 89,
+      "text": "ارجع",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 90,
+      "text": "توكنك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 91,
+      "text": "حدّث",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 93,
+      "text": "دوّر مستودع",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 93,
+      "text": "دوّر ملف",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 95,
+      "text": "مافي مستودعات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 95,
+      "text": "جرّب زر حدّث",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 101,
+      "text": "مؤرشف",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 101,
+      "text": "عام",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 105,
+      "text": "ورّيني زيادة",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 108,
+      "text": "ارفع ملفات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 108,
+      "text": "حط توكنك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 109,
+      "text": "مافي ملفات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 109,
+      "text": "ارفع أول ملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 116,
+      "text": "مجلد",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 116,
+      "text": ")} بايت",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 119,
+      "text": "شوف النص",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubScreen.kt",
+      "line": 119,
+      "text": "نزّل",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 26,
+      "text": "النت مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 30,
+      "text": "المستودع جاهز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 44,
+      "text": "التوكن جاهز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 48,
+      "text": "مسحنا التوكن",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 49,
+      "text": "حذفنا التوكن",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 56,
+      "text": "الملف فوق الحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 58,
+      "text": "بدأنا التنزيل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 62,
+      "text": "حط توكنك أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 65,
+      "text": "اختار ملفات أقل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 70,
+      "text": "غيّر اسم الملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 77,
+      "text": "رفضنا $rejected ملفات",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/GitHubViewModel.kt",
+      "line": 77,
+      "text": "بالطابور $queued ملفات",
+      "words": 3,
+      "template": true
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 16,
+      "text": "نقل ملفاتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 17,
+      "text": "بننقل ملفاتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 17,
+      "text": "خليك متصل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 35,
+      "text": "مافي بيانات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 37,
+      "text": "الملف فوق الحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 45,
+      "text": "الملف فوق الحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 55,
+      "text": "وقفناها",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/PublicTransferWorker.kt",
+      "line": 56,
+      "text": "ما ضبطت العملية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "ضبطت",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "الاتصال جاهز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "طلبك عند المشرف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "طلعت خلاص",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "ادخل بالباسورد الجديد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "حسابك تحدّث",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "حدّثنا المستودعات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "بدأنا التنزيل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "بننزّل الجديد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "فحصنا ملفاتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "المستودع جاهز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "التوكن جاهز",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "حذفنا التوكن",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "مسحنا التوكن",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "انمسح",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 5,
+      "text": "تمّت",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 9,
+      "text": "تقدر تكمل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 10,
+      "text": "بالطابور ",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 10,
+      "text": "بالطابور [0-9]+ ملفات",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 10,
+      "text": "تابع من الشغل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 11,
+      "text": "وقفناها",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 11,
+      "text": "تقدر تعيدها",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "غيّر اسم المستودع",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "المسار مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "التوكن مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "النسخة مش مضبوطة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "التوكن مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "جرّب بعدين",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "ما معك صلاحية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "مش موجود",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "راجع الاسم والنسخة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "الطلب ما ضبط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "مافي رد",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "هذا مش مجلد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "هذا مش ملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "مافي بيانات",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "نزّله وشوفه",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "نزّله وافتحه",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "حط التوكن أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "الملف فوق الحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "اختار مستودع عام",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "حط توكنك أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "اختار ملفات أقل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "غيّر اسم الملف",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "الملف اتغيّر",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "الباسورد مش صح",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "راجع بياناتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "غيّر الباسورد أول",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "راجع اللي كتبت",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "جيب تطبيق يفتحه",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "ما ضبطت العملية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 12,
+      "text": "ما ضبطت",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 13,
+      "text": "رفضنا [0-9]+ ملفات",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 15,
+      "text": "مش مفعّل",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 15,
+      "text": "حسابك مش مفعّل",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 15,
+      "text": "كلّم المشرف",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 16,
+      "text": "المجلد كبير",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 16,
+      "text": "المجلد كبير مرّة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 16,
+      "text": "جرّب مجلد ثاني",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 17,
+      "text": "المستودع كبير",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 17,
+      "text": "المستودع كبير مرّة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 17,
+      "text": "جرّب مستودع ثاني",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 18,
+      "text": "المضغوط مش مضبوط",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 18,
+      "text": "نزّل الملف ثاني",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 20,
+      "text": "توكن",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 20,
+      "text": "التوكن مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 20,
+      "text": "حط توكن جديد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 21,
+      "text": "نت",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 21,
+      "text": "اتصال",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 21,
+      "text": "النت مش شغال",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 21,
+      "text": "شيّك النت",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 22,
+      "text": "صلاحية",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 22,
+      "text": "ما معك صلاحية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 22,
+      "text": "راجع صلاحية التوكن",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 23,
+      "text": "باسورد",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 23,
+      "text": "بياناتك",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 23,
+      "text": "راجع بياناتك",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 23,
+      "text": "راجع الاسم والباسورد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 24,
+      "text": "كبير",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 24,
+      "text": "حد",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 24,
+      "text": "رفضنا",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 24,
+      "text": "الملف كبير مرّة",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 24,
+      "text": "اختار ملف أصغر",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 25,
+      "text": "اتغيّر",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 25,
+      "text": "نسخة",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 25,
+      "text": "الملف اتغيّر",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 25,
+      "text": "حدّث وجرّب ثاني",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 26,
+      "text": "مش موجود",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 26,
+      "text": "مش موجود",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 26,
+      "text": "حدّث القائمة",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 27,
+      "text": "بعدين",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 27,
+      "text": "اهدأ",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 27,
+      "text": "اهدأ شوي",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 27,
+      "text": "جرّب بعدين",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 28,
+      "text": "اسم",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 28,
+      "text": "مسار",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 28,
+      "text": "كتبت",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 28,
+      "text": "راجع اللي كتبت",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 28,
+      "text": "عدّل وجرّب ثاني",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 29,
+      "text": "ادخل بحساب saged7",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 29,
+      "text": "راجع حساب التوكن",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 30,
+      "text": "يفتحه",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 30,
+      "text": "نزّله",
+      "words": 1,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 30,
+      "text": "نزّله وافتحه",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 30,
+      "text": "جيب تطبيق يفتحه",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 31,
+      "text": "ما ضبطت العملية",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/SimpleCopy.kt",
+      "line": 31,
+      "text": "جرّب ثاني",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/StreamingUploadBody.kt",
+      "line": 15,
+      "text": "الملف فوق الحد",
+      "words": 3,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/StreamingUploadBody.kt",
+      "line": 22,
+      "text": "الملف اتغيّر",
+      "words": 2,
+      "template": false
+    },
+    {
+      "file": "android/app/src/main/java/com/saged/githubvault/feature/github/StreamingUploadBody.kt",
+      "line": 23,
+      "text": "الملف اتغيّر",
+      "words": 2,
+      "template": false
+    }
+  ],
+  "external_data": "Filenames, paths, usernames, file previews, audit values and timestamps stay intact; they are not application copy."
+}

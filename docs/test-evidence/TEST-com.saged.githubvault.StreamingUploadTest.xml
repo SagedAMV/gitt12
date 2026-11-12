@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.saged.githubvault.StreamingUploadTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-11T09:27:50" hostname="e2b.local" time="4.413">
+  <properties/>
+  <testcase name="real90MiBHttpTransfer" classname="com.saged.githubvault.StreamingUploadTest" time="4.391"/>
+  <testcase name="rejectsOver90MiB" classname="com.saged.githubvault.StreamingUploadTest" time="0.003"/>
+  <testcase name="paddingAndEscaping" classname="com.saged.githubvault.StreamingUploadTest" time="0.018"/>
+  <system-out><![CDATA[Heap limit=67108864; 90 MiB HTTP upload verified: 94371840 bytes; SHA-256 preserved; streamed request bytes=125829200
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

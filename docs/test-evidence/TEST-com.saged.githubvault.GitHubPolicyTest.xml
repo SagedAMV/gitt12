@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.saged.githubvault.GitHubPolicyTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-11T09:27:50" hostname="e2b.local" time="0.056">
+  <properties/>
+  <testcase name="unicodePath" classname="com.saged.githubvault.GitHubPolicyTest" time="0.011"/>
+  <testcase name="rejectRepoInjection" classname="com.saged.githubvault.GitHubPolicyTest" time="0.027"/>
+  <testcase name="emptyRoot" classname="com.saged.githubvault.GitHubPolicyTest" time="0.0"/>
+  <testcase name="tokenValidation" classname="com.saged.githubvault.GitHubPolicyTest" time="0.009"/>
+  <testcase name="boundedUpload" classname="com.saged.githubvault.GitHubPolicyTest" time="0.0"/>
+  <testcase name="rejectTraversal" classname="com.saged.githubvault.GitHubPolicyTest" time="0.001"/>
+  <testcase name="shaFormat" classname="com.saged.githubvault.GitHubPolicyTest" time="0.002"/>
+  <testcase name="fixedOwner" classname="com.saged.githubvault.GitHubPolicyTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

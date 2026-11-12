@@ -1,0 +1,33 @@
+project_id = "github-vault"
+[auth]
+enable_signup = false
+[functions.auth-login]
+verify_jwt = false
+[functions.registration]
+verify_jwt = false
+[functions.repositories]
+verify_jwt = false
+[functions.files]
+verify_jwt = false
+# Protected functions validate the bearer token with auth.getUser server-side.
+
+[functions.account]
+verify_jwt = false
+
+[functions.admin-users]
+verify_jwt = false
+
+[functions.admin-repositories]
+verify_jwt = false
+
+[functions.audit]
+verify_jwt = false
+
+[functions.admin-items]
+verify_jwt = false
+
+[functions.uploads]
+verify_jwt = false
+
+[functions.downloads]
+verify_jwt = false
