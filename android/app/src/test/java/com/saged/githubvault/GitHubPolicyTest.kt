@@ -11,5 +11,9 @@ class GitHubPolicyTest {
  @Test fun shaFormat(){assertEquals("a".repeat(40),GitHubPolicy.sha("a".repeat(40)));reject{GitHubPolicy.sha("main")};reject{GitHubPolicy.sha("a".repeat(39))}}
  @Test fun tokenValidation(){val fake="github_pat_UNIT_TEST_NOT_A_REAL_TOKEN";assertEquals(fake,GitHubPolicy.token(fake));reject{GitHubPolicy.token("short")};reject{GitHubPolicy.token(fake+"\n")};reject{GitHubPolicy.token(fake+"\r\nHeader: value")};reject{GitHubPolicy.token(fake+" space")}}
  @Test fun boundedUpload(){assertEquals(90L*1024*1024,GitHubPolicy.UPLOAD_LIMIT)}
+ @Test fun singleSegmentNames(){
+  assertEquals("docs",GitHubPolicy.name(" docs "));assertEquals("ملف.txt",GitHubPolicy.name("ملف.txt"))
+  for(n in listOf("","  ",".","..","a/b","a\\b","a:b","a\u0000","x".repeat(101)))reject{GitHubPolicy.name(n)}
+ }
  private fun reject(block:()->Unit){try{block();fail("Expected rejection")}catch(_:IllegalArgumentException){}}
 }

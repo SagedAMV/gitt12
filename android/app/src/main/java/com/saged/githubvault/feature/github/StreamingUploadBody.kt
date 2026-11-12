@@ -8,10 +8,10 @@ import okhttp3.RequestBody
 import okio.BufferedSink
 
 /** Bounded-memory binary -> Base64 -> HTTP streaming. */
-class StreamingUploadBody(private val file:File,path:String,branch:String,sha:String?,private val progress:(Long,Long)->Unit={_,_->}):RequestBody() {
+class StreamingUploadBody(private val file:File,path:String,branch:String,sha:String?,message:String="Upload $path from GitHub Vault",private val progress:(Long,Long)->Unit={_,_->}):RequestBody() {
  private val size=file.length()
  private val prefix="{\"content\":\"".toByteArray()
- private val suffix=("\","+buildJsonObject{put("message","Upload $path from GitHub Vault");put("branch",branch);sha?.let{put("sha",it)}}.toString().drop(1)).toByteArray()
+ private val suffix=("\","+buildJsonObject{put("message",message);put("branch",branch);sha?.let{put("sha",it)}}.toString().drop(1)).toByteArray()
  init {require(size<=GitHubPolicy.UPLOAD_LIMIT){"الملف فوق الحد"}}
  override fun contentType()="application/json".toMediaType()
  override fun contentLength()=prefix.size+4*((size+2)/3)+suffix.size

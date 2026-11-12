@@ -18,6 +18,7 @@ object GitHubPolicy {
   require(path.length<=1024 && !path.startsWith('/') && !path.contains('\\') && !path.contains(':') && path.none{it.code<32||it.code==127} && (path.isEmpty() || path.split('/').none{it.isEmpty()||it=="."||it==".."})){"المسار مش مضبوط"}
   return path
  }
+ fun name(raw:String):String {val v=raw.trim();require(v.isNotEmpty() && v.length<=100 && !v.contains('/') && !v.contains('\\') && !v.contains(':') && v!="." && v!=".." && v.none{it.code<32||it.code==127}){"الاسم مش مضبوط"};return v}
  fun token(value:String):String {require(!value.contains('\n')&&!value.contains('\r')){"التوكن مش مضبوط"};val t=value.trim();require(t.length in 20..512 && t.all{it.code in 33..126}){"التوكن مش مضبوط"};return t}
  fun sha(value:String):String {require(value.matches(Regex("[a-f0-9]{40}"))){"النسخة مش مضبوطة"};return value}
  fun root(repo:String)="/repos/$OWNER/${GitHubPolicy.repo(repo)}"
@@ -80,6 +81,12 @@ class GitHubClient(context:Context) {
   require(result["truncated"]?.jsonPrimitive?.boolean!=true){"المستودع كبير مرّة"}
   return buildJsonObject{result.getValue("tree").jsonArray.forEach{e->val v=e.jsonObject;if(v["type"]?.jsonPrimitive?.content=="blob"&&v["mode"]?.jsonPrimitive?.content!="120000")put(v.getValue("path").jsonPrimitive.content,v.getValue("sha"))}}
  }
+ /** خريطة مسار→sha لبكل ملفات المستودع، بجلب واحد؛ تستخدمها عمليات الشجرة لتفكيك المجلدات. */
+ suspend fun treePaths(repo:String):Map<String,String> {
+  val out=LinkedHashMap<String,String>()
+  versions(repo).forEach{(k,v)->out[k]=v.jsonPrimitive.content}
+  return out
+ }
  suspend fun blob(repo:String,sha:String):Response=withContext(Dispatchers.IO){
   val r=client.newCall(request(GitHubPolicy.root(repo)+"/git/blobs/"+GitHubPolicy.sha(sha),accept="application/vnd.github.raw+json")).execute()
   if(!r.isSuccessful)failure(r);r
@@ -109,8 +116,26 @@ class GitHubClient(context:Context) {
   require(info["private"]?.jsonPrimitive?.boolean==false && info["owner"]?.jsonObject?.get("login")?.jsonPrimitive?.content.equals(GitHubPolicy.OWNER,true)){"اختار مستودع عام"}
   require(info["permissions"]?.jsonObject?.get("push")?.jsonPrimitive?.boolean!=false){"ما معك صلاحية"}
   expected?.let{GitHubPolicy.sha(it)}
-  val body=StreamingUploadBody(file,path,branch,expected,progress)
+  val body=StreamingUploadBody(file,path,branch,expected,progress=progress)
   val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token).newBuilder().put(body).build()
+  client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
+ }
+ /** كتابة ملف داخل شجرة المستودع (نسخ/لصق/تسمية/مجلد جديد): المحتوى متدفّق بنفس حد 90MiB. */
+ suspend fun writeFile(repo:String,path:String,branch:String,file:java.io.File,sha:String?,message:String)=withContext(Dispatchers.IO) {
+  require(file.length()<=GitHubPolicy.UPLOAD_LIMIT){"الملف فوق الحد"}
+  GitHubPolicy.path(path);require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
+  val token=tokenStore.read()?:error("حط التوكن أول")
+  val body=StreamingUploadBody(file,path,branch,sha,message)
+  val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token).newBuilder().put(body).build()
+  client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
+ }
+ /** مسح ملف بـ sha المعلوم: PUT للنسخة ثم DELETE بطلب واحد لكل ملف. */
+ suspend fun removeFile(repo:String,path:String,branch:String,sha:String)=withContext(Dispatchers.IO) {
+  GitHubPolicy.path(path);GitHubPolicy.sha(sha)
+  require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
+  val token=tokenStore.read()?:error("حط التوكن أول")
+  val payload=buildJsonObject{put("message","Delete $path from GitHub Vault");put("sha",sha);put("branch",branch)}
+  val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token,method="DELETE",payload=payload)
   client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
  }
 }

@@ -22,12 +22,19 @@ class PublicTransferWorker(context:Context,params:WorkerParameters):CoroutineWor
   val dao=app.database.transfers();val task=dao.get(id)?:return@withContext Result.failure()
   val b=Json.parseToJsonElement(task.payload).jsonObject
   fun text(k:String)=b.getValue(k).jsonPrimitive.content
-  val repo=text("repo");val path=text("path")
   var partial:File?=null
   try {
-   GitHubPolicy.repo(repo);GitHubPolicy.path(path);require(path.isNotEmpty())
    setForeground(getForegroundInfo())
    dao.update(id,"RUNNING",0f)
+   if(task.kind=="TREE_EDIT") {
+    val ops=FileOps.decodeOps(text("ops"))
+    require(ops.isNotEmpty()){"مافي شي جديد"};require(ops.size<=FileOps.OPS_LIMIT){"الكثير مرّة"}
+    ops.forEach{GitHubPolicy.repo(it.repo);GitHubPolicy.path(it.path)}
+    TreeOpRunner(GitHubTreeApi(app.github),app.cacheDir).run(ops){done,total->kotlinx.coroutines.runBlocking{dao.update(id,"RUNNING",(.04f+.92f*done/total).coerceAtMost(.96f))}}
+    dao.update(id,"SUCCEEDED",1f);return@withContext Result.success()
+   }
+   val repo=text("repo");val path=text("path")
+   GitHubPolicy.repo(repo);GitHubPolicy.path(path);require(path.isNotEmpty())
    if(task.kind=="PUBLIC_DOWNLOAD") {
     val folder=File(app.filesDir,"downloads/public-${UUID.randomUUID()}");check(folder.mkdirs())
     val temp=File(folder,"payload.part");partial=temp

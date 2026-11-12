@@ -16,7 +16,7 @@ data class GitHubState(
  val busy:Boolean=false,val message:String?=null,val repositories:List<JsonObject> = emptyList(),
  val repo:String?=null,val branch:String="main",val path:String="",val files:List<JsonObject> = emptyList(),
  val page:Int=1,val hasMore:Boolean=false,val tokenSaved:Boolean=false,val tokenUser:String?=null,
- val preview:String?=null,val previewName:String=""
+ val preview:String?=null,val previewName:String="",val selected:List<String> = emptyList(),val clip:Clip?=null
 )
 class GitHubViewModel(application:Application):AndroidViewModel(application) {
  private val app=application as VaultApplication
@@ -36,7 +36,7 @@ class GitHubViewModel(application:Application):AndroidViewModel(application) {
  }
  fun open(repo:String,branch:String,path:String="")=task {
   val files=app.github.files(repo,path,branch)
-  mutable.value=mutable.value.copy(repo=repo,branch=branch,path=path,files=files,preview=null)
+  mutable.value=mutable.value.copy(repo=repo,branch=branch,path=path,files=files,preview=null,selected=emptyList())
  }
  fun back() {val s=mutable.value;if(s.preview!=null)closePreview()else if(s.repo!=null && s.path.isNotEmpty())open(s.repo,s.branch,s.path.substringBeforeLast('/',""))else mutable.value=mutable.value.copy(repo=null,path="",files=emptyList())}
  fun preview(file:JsonObject)=task {val s=mutable.value;mutable.value=s.copy(busy=true,preview=app.github.preview(s.repo!!,file.getValue("sha").jsonPrimitive.content),previewName=file.getValue("name").jsonPrimitive.content)}
@@ -50,6 +50,65 @@ class GitHubViewModel(application:Application):AndroidViewModel(application) {
  }
  private suspend fun queue(kind:String,repo:String,path:String,payload:JsonObject) {
   val id=UUID.randomUUID().toString();app.database.transfers().put(Transfer(id,kind,"public:saged7/$repo","$repo/$path",payload.toString()));PublicTransferWorker.enqueue(app,id,kind=="DIRECT_UPLOAD")
+ }
+ private suspend fun queueEdit(repo:String,branch:String,ops:List<TreeOp>,verb:String) {
+  val id=UUID.randomUUID().toString()
+  val payload=buildJsonObject{put("repo",repo);put("branch",branch);put("ops",FileOps.encodeOps(ops))}
+  app.database.transfers().put(Transfer(id,"TREE_EDIT","public:saged7/$repo","$verb ${ops.size} · $repo",payload.toString()))
+  PublicTransferWorker.enqueue(app,id,false)
+ }
+ private fun selectedItems():List<ClipItem> {
+  val s=mutable.value;val repo=s.repo?:""
+  return s.files.filter{it.getValue("path").jsonPrimitive.content in s.selected}.map{f->
+   ClipItem(repo,f.getValue("path").jsonPrimitive.content,f.getValue("type").jsonPrimitive.content,s.branch,f.get("sha")?.jsonPrimitive?.content,f["size"]?.jsonPrimitive?.long?:0L)}
+ }
+ private fun queuedNote(count:Int)=if(count==1)"بالطابور عنصر واحد" else "بالطابور $count عناصر"
+ fun toggleSelect(path:String) {val s=mutable.value;mutable.value=s.copy(selected=if(path in s.selected)s.selected-path else s.selected+path)}
+ fun clearSelection() {mutable.value=mutable.value.copy(selected=emptyList())}
+ fun clearClip() {mutable.value=mutable.value.copy(clip=null)}
+ fun clipSelection(mode:ClipMode)=task {
+  val s=mutable.value;val repo=s.repo?:return@task
+  require(app.github.hasToken){"حط توكنك أول"};if(s.selected.isEmpty())return@task
+  val items=selectedItems().let{if(it.size<=FileOps.OPS_LIMIT)it else it.take(FileOps.OPS_LIMIT)}
+  mutable.value=mutable.value.copy(clip=Clip(mode,items),message=if(mode==ClipMode.COPY)"جاهزة للنسخ" else "جاهزة للقص")
+ }
+ fun pasteClip()=task {
+  val s=mutable.value;val repo=s.repo?:return@task;val clip=s.clip?:return@task
+  require(app.github.hasToken){"حط توكنك أول"}
+  val blobs=HashMap<String,String>()
+  for(src in clip.items.map{it.repo}.distinct())blobs.putAll(app.github.treePaths(src))
+  val sources=clip.items.map{item->if(item.type=="dir")PasteSource(item,FileOps.dirBlobs(item,blobs)) else PasteSource(item,emptyList())}
+  val existing=s.files.map{it.getValue("path").jsonPrimitive.content}.toSet()
+  val ops=FileOps.paste(clip,repo,s.path,s.branch,existing,sources)
+  queueEdit(repo,s.branch,ops,"لصق")
+  mutable.value=mutable.value.copy(clip=if(clip.mode==ClipMode.CUT)null else clip,message=queuedNote(ops.size))
+ }
+ fun removeSelected()=task {
+  val s=mutable.value;val repo=s.repo?:return@task
+  require(app.github.hasToken){"حط توكنك أول"};if(s.selected.isEmpty())return@task
+  val items=selectedItems()
+  val tree=if(items.any{it.type=="dir"})app.github.treePaths(repo) else emptyMap()
+  val ops=FileOps.delete(items,repo,s.branch,tree)
+  queueEdit(repo,s.branch,ops,"مسح")
+  mutable.value=mutable.value.copy(selected=emptyList(),message=queuedNote(ops.size))
+ }
+ fun makeFolder(rawName:String)=task {
+  val s=mutable.value;val repo=s.repo?:return@task
+  require(app.github.hasToken){"حط توكنك أول"}
+  val path=FileOps.join(s.path,GitHubPolicy.name(rawName))
+  val ops=FileOps.mkdir(repo,path,s.branch)
+  queueEdit(repo,s.branch,ops,"مجلد")
+  mutable.value=mutable.value.copy(message=queuedNote(ops.size))
+ }
+ fun renameSelected(rawName:String)=task {
+  val s=mutable.value;val repo=s.repo?:return@task
+  require(app.github.hasToken){"حط توكنك أول"};require(s.selected.size==1){"المسار مش مضبوط"}
+  val item=selectedItems().first()
+  val tree=if(item.type=="dir")app.github.treePaths(repo) else emptyMap()
+  val ops=FileOps.rename(item,GitHubPolicy.name(rawName),s.branch,tree)
+  if(ops.isNotEmpty())queueEdit(repo,s.branch,ops,"تسمية")
+  val note=if(ops.isEmpty())"مافي شي جديد" else queuedNote(ops.size)
+  mutable.value=mutable.value.copy(selected=emptyList(),message=note)
  }
  fun download(file:JsonObject)=task {
   val repo=mutable.value.repo!!;val path=file.getValue("path").jsonPrimitive.content

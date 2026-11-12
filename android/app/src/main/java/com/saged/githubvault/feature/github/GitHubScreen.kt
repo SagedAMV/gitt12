@@ -39,8 +39,25 @@ private fun JsonObject.text(k:String)=this[k]?.jsonPrimitive?.content?:""
  var tokenDialog by remember{mutableStateOf(false)}
  var token by remember{mutableStateOf("")}
  var pending by remember{mutableStateOf<List<Uri>?>(null)}
+ var mkdirDialog by remember{mutableStateOf(false)};var folderName by remember{mutableStateOf("")}
+ var renameDialog by remember{mutableStateOf(false)};var newName by remember{mutableStateOf("")}
+ var deleteConfirm by remember{mutableStateOf(false)}
  val picker=rememberLauncherForActivityResult(ActivityResultContracts.OpenMultipleDocuments()){if(it.isNotEmpty())pending=it}
- BackHandler(s.repo!=null || s.preview!=null){search="";vm.back()}
+ BackHandler(s.repo!=null || s.preview!=null){search="";if(s.selected.isNotEmpty())vm.clearSelection() else vm.back()}
+ if(mkdirDialog)AlertDialog(onDismissRequest={mkdirDialog=false},title={Text("مجلد جديد")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)){
+  Text("بيُنشأ بمكانك الحالي",style=MaterialTheme.typography.bodySmall)
+  OutlinedTextField(folderName,{folderName=it},label={Text("اسم المجلد")},singleLine=true,modifier=Modifier.fillMaxWidth())
+ }},confirmButton={MotionTextButton(onClick={vm.makeFolder(folderName);mkdirDialog=false;folderName=""},enabled=runCatching{GitHubPolicy.name(folderName)}.isSuccess&&!s.busy){Text("سوّه")}},dismissButton={MotionTextButton(onClick={mkdirDialog=false}){Text("خلّيه")}})
+ if(renameDialog){val current=s.files.find{it.getValue("path").jsonPrimitive.content==s.selected.firstOrNull()}
+  AlertDialog(onDismissRequest={renameDialog=false},title={Text("غيّر الاسم")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)){
+   Text(current?.getValue("path")?.jsonPrimitive?.content?:"",maxLines=1,overflow=TextOverflow.Ellipsis,style=MaterialTheme.typography.bodySmall)
+   OutlinedTextField(newName,{newName=it},label={Text("الاسم الجديد")},singleLine=true,modifier=Modifier.fillMaxWidth())
+  }},confirmButton={MotionTextButton(onClick={vm.renameSelected(newName);renameDialog=false},enabled=runCatching{GitHubPolicy.name(newName)}.isSuccess&&!s.busy){Text("غيّره")}},dismissButton={MotionTextButton(onClick={renameDialog=false}){Text("خلّيه")}})}
+ if(deleteConfirm)AlertDialog(onDismissRequest={deleteConfirm=false},title={Text("نمسح ${s.selected.size} عناصر؟")},text={Column(verticalArrangement=Arrangement.spacedBy(8.dp)){
+  Text("من GitHub نهائي")
+  Text("بينفذ بالطابور")
+  Text(s.repo?:"",maxLines=1,overflow=TextOverflow.Ellipsis)
+ }},confirmButton={MotionTextButton(onClick={vm.removeSelected();deleteConfirm=false},enabled=!s.busy){Text("امسحها")}},dismissButton={MotionTextButton(onClick={deleteConfirm=false}){Text("خلّيه")}})
  if(createDialog)AlertDialog(onDismissRequest={createDialog=false},title={Text("مستودع جديد")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)){
   Text("بيشوفه أي أحد",style=MaterialTheme.typography.bodySmall)
   Text("حسابك: saged7")
@@ -68,7 +85,15 @@ private fun JsonObject.text(k:String)=this[k]?.jsonPrimitive?.content?:""
   onBack={search="";vm.back()},onRefresh={if(s.repo==null)vm.repositories()else vm.open(s.repo!!,s.branch,s.path)},
   onOpen={repo,branch,path->search="";vm.open(repo,branch,path)},onPreview=vm::preview,onDownload=vm::download,
   onMore={vm.repositories(true)},onAction={if(s.repo==null){if(s.tokenSaved)createDialog=true else tokenDialog=true}else if(s.tokenSaved)picker.launch(arrayOf("*/*"))else tokenDialog=true},
-  onDismiss=vm::clearMessage)
+  onDismiss=vm::clearMessage,
+  onToggleSelect=vm::toggleSelect,
+  onCopy={if(s.tokenSaved)vm.clipSelection(ClipMode.COPY) else tokenDialog=true},
+  onCut={if(s.tokenSaved)vm.clipSelection(ClipMode.CUT) else tokenDialog=true},
+  onPaste={if(s.tokenSaved)vm.pasteClip() else tokenDialog=true},
+  onDelete={if(s.tokenSaved)deleteConfirm=true else tokenDialog=true},
+  onRename={val path=s.selected.firstOrNull()?:"";val current=s.files.find{it.getValue("path").jsonPrimitive.content==path};newName=current?.getValue("name")?.jsonPrimitive?.content?:"";renameDialog=true},
+  onMkdir={if(s.tokenSaved){folderName="";mkdirDialog=true} else tokenDialog=true},
+  onClearClip=vm::clearClip,onClearSelection=vm::clearSelection)
 }
 
 @Composable fun GitHubTokenSettings(vm:GitHubViewModel=viewModel()) {
