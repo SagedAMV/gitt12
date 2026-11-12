@@ -42,8 +42,25 @@ private fun JsonObject.text(k:String)=this[k]?.jsonPrimitive?.content?:""
  var mkdirDialog by remember{mutableStateOf(false)};var folderName by remember{mutableStateOf("")}
  var renameDialog by remember{mutableStateOf(false)};var newName by remember{mutableStateOf("")}
  var deleteConfirm by remember{mutableStateOf(false)}
+ var repoDeleteDialog by remember{mutableStateOf(false)}
+ var repoRenameDialog by remember{mutableStateOf(false)};var repoNewName by remember{mutableStateOf("")}
  val picker=rememberLauncherForActivityResult(ActivityResultContracts.OpenMultipleDocuments()){if(it.isNotEmpty())pending=it}
- BackHandler(s.repo!=null || s.preview!=null){search="";if(s.selected.isNotEmpty())vm.clearSelection() else vm.back()}
+ BackHandler(s.repo!=null || s.preview!=null || s.selectedRepos.isNotEmpty()){search="";when{
+  s.preview!=null->vm.closePreview()
+  s.selected.isNotEmpty()->vm.clearSelection()
+  s.selectedRepos.isNotEmpty()->vm.clearRepoSelection()
+  else->vm.back()
+ }}
+ if(repoDeleteDialog)AlertDialog(onDismissRequest={repoDeleteDialog=false},title={Text("نمسح ${s.selectedRepos.size} مستودعات؟")},text={Column(verticalArrangement=Arrangement.spacedBy(8.dp)){
+  Text(s.selectedRepos.take(3).joinToString("، "),maxLines=3,overflow=TextOverflow.Ellipsis,fontFamily=FontFamily.Monospace)
+  Text("نهائي وما يرجع")
+  Text("التوكن يحتاج Administration")
+ }},confirmButton={MotionTextButton(onClick={vm.deleteRepos();repoDeleteDialog=false},enabled=!s.busy){Text("امسحها")}},dismissButton={MotionTextButton(onClick={repoDeleteDialog=false}){Text("خلّيه")}})
+ if(repoRenameDialog)AlertDialog(onDismissRequest={repoRenameDialog=false},title={Text("غيّر اسم المستودع")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)){
+  Text(s.selectedRepos.firstOrNull()?:"",maxLines=1,overflow=TextOverflow.Ellipsis,style=MaterialTheme.typography.bodySmall)
+  Text("الروابط القديمة تتحول",style=MaterialTheme.typography.bodySmall)
+  OutlinedTextField(repoNewName,{repoNewName=it},label={Text("الاسم الجديد")},singleLine=true,modifier=Modifier.fillMaxWidth())
+ }},confirmButton={MotionTextButton(onClick={vm.renameRepo(s.selectedRepos.first(),repoNewName);repoRenameDialog=false},enabled=runCatching{GitHubPolicy.repo(repoNewName.trim())}.isSuccess&&repoNewName.trim()!=s.selectedRepos.firstOrNull()&&!s.busy){Text("غيّره")}},dismissButton={MotionTextButton(onClick={repoRenameDialog=false}){Text("خلّيه")}})
  if(mkdirDialog)AlertDialog(onDismissRequest={mkdirDialog=false},title={Text("مجلد جديد")},text={Column(verticalArrangement=Arrangement.spacedBy(12.dp)){
   Text("بيُنشأ بمكانك الحالي",style=MaterialTheme.typography.bodySmall)
   OutlinedTextField(folderName,{folderName=it},label={Text("اسم المجلد")},singleLine=true,modifier=Modifier.fillMaxWidth())
@@ -93,7 +110,13 @@ private fun JsonObject.text(k:String)=this[k]?.jsonPrimitive?.content?:""
   onDelete={if(s.tokenSaved)deleteConfirm=true else tokenDialog=true},
   onRename={val path=s.selected.firstOrNull()?:"";val current=s.files.find{it.getValue("path").jsonPrimitive.content==path};newName=current?.getValue("name")?.jsonPrimitive?.content?:"";renameDialog=true},
   onMkdir={if(s.tokenSaved){folderName="";mkdirDialog=true} else tokenDialog=true},
-  onClearClip=vm::clearClip,onClearSelection=vm::clearSelection)
+  onClearClip=vm::clearClip,onClearSelection=vm::clearSelection,
+  onToggleSelectRepo=vm::toggleSelectRepo,
+  onRepoDelete={if(s.tokenSaved)repoDeleteDialog=true else tokenDialog=true},
+  onRepoRename={if(s.tokenSaved){repoNewName=s.selectedRepos.firstOrNull()?:"";repoRenameDialog=true} else tokenDialog=true},
+  onRepoArchive={if(s.tokenSaved)s.selectedRepos.firstOrNull()?.let{vm.toggleArchiveRepo(it)} else tokenDialog=true},
+  onRepoFork={if(s.tokenSaved)vm.forkSelected() else tokenDialog=true},
+  onClearRepoSelection=vm::clearRepoSelection)
 }
 
 @Composable fun GitHubTokenSettings(vm:GitHubViewModel=viewModel()) {

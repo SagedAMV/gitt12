@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
    "trash"->listOf("M4 7H20","M9 7V4H15V7","M6 7 7 20A1 1 0 0 0 8 21H16A1 1 0 0 0 17 20L18 7","M10 11V17M14 11V17")
    "rename"->listOf("M4 20 5.5 15 16.5 4 20 7.5 9 18.5 4 20Z","M14.5 6 18 9.5")
    "folder-new"->listOf("M3 7A2 2 0 0 1 5 5H10L12 8H19A2 2 0 0 1 21 10V19H3V7Z","M12 11V16M9.5 13.5H14.5")
+   "archive"->listOf("M4 5H20V9H4V5Z","M6 9V19A1 1 0 0 0 7 20H17A1 1 0 0 0 18 19V9","M10 12H14")
    "alert"->listOf("M21 12A9 9 0 1 1 3 12A9 9 0 1 1 21 12Z","M12 7V13M12 16V17")
    else->listOf("M5 12 9 16 19 6")
   }

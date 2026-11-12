@@ -147,4 +147,11 @@ object FileOps {
 
  fun encodeOps(ops:List<TreeOp>)=json.encodeToString(ListSerializer(TreeOp.serializer()),ops)
  fun decodeOps(raw:String):List<TreeOp> {return json.decodeFromString(ListSerializer(TreeOp.serializer()),raw)}
+
+ /** اسم متاح لنسخة المستودع عبر fork: sageer → sageer-copy → sageer-copy-2 … */
+ fun uniqueFork(existing:Set<String>,source:String):String {
+  if("$source-copy" !in existing)return "$source-copy"
+  var n=2
+  while(true){val candidate="$source-copy-$n";if(candidate !in existing)return candidate;n++}
+ }
 }

@@ -92,5 +92,10 @@ class FileOpsTest {
   val ops=FileOps.paste(clip,"sageer","","main",emptySet(),listOf(PasteSource(clip.items[0],emptyList())))
   assertEquals(1,ops.size);assertEquals("other",ops[0].srcRepo);assertEquals("sageer",ops[0].repo)
  }
+ @Test fun uniqueForkNames(){
+  assertEquals("sageer-copy",FileOps.uniqueFork(setOf("other"),"sageer"))
+  assertEquals("sageer-copy-2",FileOps.uniqueFork(setOf("sageer-copy"),"sageer"))
+  assertEquals("sageer-copy-3",FileOps.uniqueFork(setOf("sageer-copy","sageer-copy-2"),"sageer"))
+ }
  private fun reject(block:()->Unit){try{block();fail("Expected rejection")}catch(_:IllegalArgumentException){}}
 }

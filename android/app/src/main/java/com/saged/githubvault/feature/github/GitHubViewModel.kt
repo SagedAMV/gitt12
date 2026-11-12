@@ -16,7 +16,8 @@ data class GitHubState(
  val busy:Boolean=false,val message:String?=null,val repositories:List<JsonObject> = emptyList(),
  val repo:String?=null,val branch:String="main",val path:String="",val files:List<JsonObject> = emptyList(),
  val page:Int=1,val hasMore:Boolean=false,val tokenSaved:Boolean=false,val tokenUser:String?=null,
- val preview:String?=null,val previewName:String="",val selected:List<String> = emptyList(),val clip:Clip?=null
+ val preview:String?=null,val previewName:String="",val selected:List<String> = emptyList(),val clip:Clip?=null,
+ val selectedRepos:List<String> = emptyList()
 )
 class GitHubViewModel(application:Application):AndroidViewModel(application) {
  private val app=application as VaultApplication
@@ -32,7 +33,46 @@ class GitHubViewModel(application:Application):AndroidViewModel(application) {
  fun clearMessage(){mutable.value=mutable.value.copy(message=null)}
  fun repositories(next:Boolean=false)=task {
   val page=if(next)mutable.value.page+1 else 1;val data=app.github.repositories(page)
-  mutable.value=mutable.value.copy(repositories=if(next)(mutable.value.repositories+data).distinctBy{it["id"].toString()} else data,repo=null,path="",files=emptyList(),page=page,hasMore=data.size==100)
+  mutable.value=mutable.value.copy(repositories=if(next)(mutable.value.repositories+data).distinctBy{it["id"].toString()} else data,repo=null,path="",files=emptyList(),page=page,hasMore=data.size==100,selectedRepos=emptyList())
+ }
+ private suspend fun reloadRepos() {
+  val data=app.github.repositories(1)
+  mutable.value=mutable.value.copy(repositories=data,page=1,hasMore=data.size==100)
+ }
+ fun toggleSelectRepo(name:String) {val s=mutable.value;mutable.value=s.copy(selectedRepos=if(name in s.selectedRepos)s.selectedRepos-name else s.selectedRepos+name)}
+ fun clearRepoSelection() {mutable.value=mutable.value.copy(selectedRepos=emptyList())}
+ fun deleteRepos()=task {
+  val s=mutable.value
+  require(app.github.hasToken){"حط توكنك أول"};if(s.selectedRepos.isEmpty())return@task
+  require(s.selectedRepos.size<=20){"الكثير مرّة"}
+  for(name in s.selectedRepos)app.github.deleteRepository(name)
+  reloadRepos()
+  mutable.value=mutable.value.copy(selectedRepos=emptyList(),message="انمسح المستودع")
+ }
+ fun renameRepo(old:String,newRaw:String)=task {
+  val s=mutable.value
+  require(app.github.hasToken){"حط توكنك أول"}
+  app.github.renameRepository(old,GitHubPolicy.repo(newRaw.trim()))
+  reloadRepos()
+  mutable.value=mutable.value.copy(selectedRepos=emptyList(),message="المستودع تحدّث")
+ }
+ fun toggleArchiveRepo(name:String)=task {
+  val s=mutable.value
+  require(app.github.hasToken){"حط توكنك أول"}
+  val repo=s.repositories.find{it.getValue("name").jsonPrimitive.content==name}?:return@task
+  val current=repo["archived"]?.jsonPrimitive?.boolean==true
+  app.github.setArchived(name,!current)
+  reloadRepos()
+  mutable.value=mutable.value.copy(selectedRepos=emptyList(),message="تمّت")
+ }
+ fun forkSelected()=task {
+  val s=mutable.value
+  require(app.github.hasToken){"حط توكنك أول"};if(s.selectedRepos.isEmpty())return@task
+  require(s.selectedRepos.size<=20){"الكثير مرّة"}
+  val names=HashSet(s.repositories.map{it.getValue("name").jsonPrimitive.content});val planned=HashSet<String>()
+  for(name in s.selectedRepos){val target=FileOps.uniqueFork(names+planned,name);planned+=target;app.github.forkRepository(name,target)}
+  reloadRepos()
+  mutable.value=mutable.value.copy(message="بدأت النسخة")
  }
  fun open(repo:String,branch:String,path:String="")=task {
   val files=app.github.files(repo,path,branch)

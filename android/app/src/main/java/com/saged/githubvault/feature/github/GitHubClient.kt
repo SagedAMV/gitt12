@@ -24,19 +24,21 @@ object GitHubPolicy {
  fun root(repo:String)="/repos/$OWNER/${GitHubPolicy.repo(repo)}"
 }
 class GitHubFailure(val status:Int,message:String):Exception(message)
-class GitHubClient(context:Context) {
- private val tokenStore=SessionStore(context,"github_device_token","github_device_token_v1")
+/** host/scheme/port/tokenProvider: بوابات اختبار فقط (عقد HTTP على JVM)؛ الاستخدام الفعلي يتركها افتراضية. */
+class GitHubClient(context:Context?=null,private val host:String="api.github.com",private val scheme:String="https",private val port:Int=-1,private val tokenProvider:(()->String?)?=null) {
+ private val tokenStore=if(context!=null)SessionStore(context,"github_device_token","github_device_token_v1") else null
  private val client=OkHttpClient.Builder().callTimeout(900,TimeUnit.SECONDS).writeTimeout(300,TimeUnit.SECONDS).readTimeout(300,TimeUnit.SECONDS).followRedirects(false).followSslRedirects(false).build()
- val hasToken:Boolean get()=!tokenStore.read().isNullOrBlank()
+ private fun readToken():String?=tokenProvider?.invoke()?:tokenStore?.read()
+ val hasToken:Boolean get()=!readToken().isNullOrBlank()
  fun removeToken() {
-  tokenStore.clear()
+  tokenStore?.clear()
   (client.dispatcher.queuedCalls()+client.dispatcher.runningCalls()).filter{it.request().header("Authorization")!=null}.forEach{it.cancel()}
  }
  private fun request(path:String,query:Map<String,String> = emptyMap(),accept:String="application/vnd.github+json",token:String?=null,method:String="GET",payload:JsonObject?=null):Request {
   require(path.startsWith('/') && !path.startsWith("//"))
-  val url=HttpUrl.Builder().scheme("https").host("api.github.com").apply {path.substring(1).split('/').forEach{addPathSegment(it)};query.forEach{(k,v)->addQueryParameter(k,v)}}.build()
+  val url=HttpUrl.Builder().scheme(scheme).host(host).apply {if(port>0)port(port);path.substring(1).split('/').forEach{addPathSegment(it)};query.forEach{(k,v)->addQueryParameter(k,v)}}.build()
   return Request.Builder().url(url).header("Accept",accept).header("X-GitHub-Api-Version","2022-11-28").header("User-Agent","GitHubVault-Android/0.3.0")
-   .apply{token?.let{header("Authorization","Bearer $it")};if(method!="GET")method(method,payload!!.toString().toRequestBody("application/json".toMediaType()))}.build()
+   .apply{token?.let{header("Authorization","Bearer $it")};if(method!="GET")method(method,(payload?:buildJsonObject{}).toString().toRequestBody("application/json".toMediaType()))}.build()
  }
  private fun failure(response:Response):Nothing {
   val code=response.code;val remaining=response.header("X-RateLimit-Remaining");val reset=response.header("X-RateLimit-Reset")?.toLongOrNull()
@@ -53,6 +55,10 @@ class GitHubClient(context:Context) {
  }
  private suspend fun json(path:String,query:Map<String,String> = emptyMap(),token:String?=null,method:String="GET",payload:JsonObject?=null):JsonElement=withContext(Dispatchers.IO){
   client.newCall(request(path,query,token=token,method=method,payload=payload)).execute().use{r->if(!r.isSuccessful)failure(r);Json.parseToJsonElement(r.body?.string()?:error("مافي رد"))}
+ }
+ /** لعمليات الرد بدون جسم (204/202/200): تتحقق من النجاح وتغلق الرد دون تفكيك JSON. */
+ private suspend fun status(path:String,token:String,method:String,payload:JsonObject?=null):Int=withContext(Dispatchers.IO){
+  client.newCall(request(path,token=token,method=method,payload=payload)).execute().use{r->if(!r.isSuccessful)failure(r);r.code}
  }
  suspend fun repositories(page:Int):List<JsonObject> {
   require(page in 1..1000)
@@ -98,20 +104,39 @@ class GitHubClient(context:Context) {
   val value=GitHubPolicy.token(raw)
   val data=json("/user",token=value).jsonObject
   val login=data["login"]?.jsonPrimitive?.content?:error("التوكن مش شغال")
-  withContext(Dispatchers.IO){tokenStore.save(value)}
+  withContext(Dispatchers.IO){tokenStore?.save(value)}
   return login
  }
  suspend fun createRepository(name:String) {
   GitHubPolicy.repo(name)
-  val token=withContext(Dispatchers.IO){tokenStore.read()}?:error("حط التوكن أول")
+  val token=withContext(Dispatchers.IO){readToken()}?:error("حط التوكن أول")
   val user=json("/user",token=token).jsonObject
   require(user["login"]?.jsonPrimitive?.content.equals(GitHubPolicy.OWNER,true)){"ادخل بحساب saged7"}
   json("/user/repos",token=token,method="POST",payload=buildJsonObject{put("name",name);put("private",false);put("auto_init",true)})
  }
+ /** حذف مستودع نهائي — يتطلب Administration: write (وللتوكن الكلاسيكي delete_repo). */
+ suspend fun deleteRepository(name:String) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name),token,"DELETE")
+ }
+ /** إعادة تسمية مستودع — GitHub يحوّل روابط git القديمة تلقائياً. */
+ suspend fun renameRepository(name:String,newName:String) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name),token,"PATCH",buildJsonObject{put("name",GitHubPolicy.repo(newName.trim()))})
+ }
+ suspend fun setArchived(name:String,archived:Boolean) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name),token,"PATCH",buildJsonObject{put("archived",archived)})
+ }
+ /** نسخة كاملة من المستودع داخل نفس الحساب عبر fork — يرجع 202 والنسخة تجهز بالخلفية. */
+ suspend fun forkRepository(name:String,target:String) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name)+"/forks",token,"POST",buildJsonObject{put("name",GitHubPolicy.repo(target.trim()))})
+ }
  suspend fun upload(repo:String,path:String,branch:String,file:java.io.File,expected:String?,progress:(Long,Long)->Unit = {_,_->})=withContext(Dispatchers.IO) {
   require(file.length()<=GitHubPolicy.UPLOAD_LIMIT){"الملف فوق الحد"}
   GitHubPolicy.path(path);require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
-  val token=tokenStore.read()?:error("حط التوكن أول")
+  val token=readToken()?:error("حط التوكن أول")
   val info=json(GitHubPolicy.root(repo),token=token).jsonObject
   require(info["private"]?.jsonPrimitive?.boolean==false && info["owner"]?.jsonObject?.get("login")?.jsonPrimitive?.content.equals(GitHubPolicy.OWNER,true)){"اختار مستودع عام"}
   require(info["permissions"]?.jsonObject?.get("push")?.jsonPrimitive?.boolean!=false){"ما معك صلاحية"}
@@ -124,7 +149,7 @@ class GitHubClient(context:Context) {
  suspend fun writeFile(repo:String,path:String,branch:String,file:java.io.File,sha:String?,message:String)=withContext(Dispatchers.IO) {
   require(file.length()<=GitHubPolicy.UPLOAD_LIMIT){"الملف فوق الحد"}
   GitHubPolicy.path(path);require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
-  val token=tokenStore.read()?:error("حط التوكن أول")
+  val token=readToken()?:error("حط التوكن أول")
   val body=StreamingUploadBody(file,path,branch,sha,message)
   val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token).newBuilder().put(body).build()
   client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
@@ -133,7 +158,7 @@ class GitHubClient(context:Context) {
  suspend fun removeFile(repo:String,path:String,branch:String,sha:String)=withContext(Dispatchers.IO) {
   GitHubPolicy.path(path);GitHubPolicy.sha(sha)
   require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
-  val token=tokenStore.read()?:error("حط التوكن أول")
+  val token=readToken()?:error("حط التوكن أول")
   val payload=buildJsonObject{put("message","Delete $path from GitHub Vault");put("sha",sha);put("branch",branch)}
   val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token,method="DELETE",payload=payload)
   client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}

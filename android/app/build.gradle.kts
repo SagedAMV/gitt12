@@ -13,7 +13,7 @@ android {
  namespace = "com.saged.githubvault"
  compileSdk = 35
  defaultConfig {
-  applicationId = "com.saged.githubvault"; minSdk = 26; targetSdk = 35; versionCode = 12; versionName = "1.0.0"
+  applicationId = "com.saged.githubvault"; minSdk = 26; targetSdk = 35; versionCode = 13; versionName = "1.1.0"
   buildConfigField("String", "SUPABASE_URL", "\"${projectConfig.getProperty("SUPABASE_URL", "")}\"")
   buildConfigField("String", "SUPABASE_ANON_KEY", "\"${projectConfig.getProperty("SUPABASE_ANON_KEY", "")}\"")
  }

@@ -12,5 +12,8 @@ class SimpleCopyTest {
   for(raw in listOf("جاهزة للنسخ","جاهزة للقص","مافي شي جديد","بالطابور عنصر واحد")){val f=SimpleCopy.feedback(raw);assertEquals("success",f.kind);checkShort(f.title);checkShort(f.hint)}
   for(raw in listOf("الاسم مش مضبوط","الكثير مرّة")){val f=SimpleCopy.feedback(raw);assertEquals("error",f.kind);checkShort(f.title);checkShort(f.hint)}
  }
+ @Test fun repoOpsCopyIsPoliced(){
+  for(raw in listOf("انمسح المستودع","المستودع تحدّث","بدأت النسخة")){val f=SimpleCopy.feedback(raw);assertEquals("success",f.kind);checkShort(f.title);checkShort(f.hint)}
+ }
  @Test fun longBackendTextIsNotExposed(){val s="server rejected secret_token at http://example.invalid because of internal details";assertEquals("التوكن مش شغال",SimpleCopy.message(s));checkShort(SimpleCopy.message(s))}
 }

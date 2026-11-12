@@ -45,12 +45,15 @@ private fun JsonObject.label(key:String)=this[key]?.jsonPrimitive?.content?:""
  onOpen:(String,String,String)->Unit,onPreview:(JsonObject)->Unit,onDownload:(JsonObject)->Unit,
  onMore:()->Unit,onAction:()->Unit,onDismiss:()->Unit,
  onToggleSelect:(String)->Unit={},onCopy:()->Unit={},onCut:()->Unit={},onPaste:()->Unit={},
- onDelete:()->Unit={},onRename:()->Unit={},onMkdir:()->Unit={},onClearClip:()->Unit={},onClearSelection:()->Unit={}
+ onDelete:()->Unit={},onRename:()->Unit={},onMkdir:()->Unit={},onClearClip:()->Unit={},onClearSelection:()->Unit={},
+ onToggleSelectRepo:(String)->Unit={},onRepoDelete:()->Unit={},onRepoRename:()->Unit={},
+ onRepoArchive:()->Unit={},onRepoFork:()->Unit={},onClearRepoSelection:()->Unit={}
 ) {
  var filter by remember(s.repo,s.path){mutableStateOf("all")}
  val palette=MaterialTheme.colorScheme
  val clip=s.clip
  val selecting=s.selected.isNotEmpty()
+ val selectingRepos=s.selectedRepos.isNotEmpty()
  val canEdit=s.repo!=null && s.tokenSaved
  Column(Modifier.fillMaxSize().background(palette.background)) {
   if(s.busy)LinearProgressIndicator(Modifier.fillMaxWidth().height(2.dp))
@@ -70,13 +73,25 @@ private fun JsonObject.label(key:String)=this[key]?.jsonPrimitive?.content?:""
     if(s.repo!=null) item{SelectionBars(s,selecting,clip,palette,onCopy,onCut,onPaste,onDelete,onRename,onClearClip,onClearSelection)}
     if(s.repo==null) {
      item{Row(Modifier.fillMaxWidth().height(29.dp),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=Alignment.CenterVertically){Text("مستودعاتك",fontSize=12.sp,lineHeight=19.2.sp,fontWeight=FontWeight.Bold);MotionTextButton(onClick=onRefresh,enabled=!s.busy){Text("حدّث",fontSize=10.sp,lineHeight=16.sp)}}}
+     item{RepoSelectionBar(s,selectingRepos,palette,onRepoDelete,onRepoRename,onRepoArchive,onRepoFork,onClearRepoSelection)}
      if(s.repositories.isEmpty()&&!s.busy)item{BrowserEmpty("مافي مستودعات","جرّب زر حدّث")}
      itemsIndexed(s.repositories.filter{it.label("name").contains(search,true)},key={_,it->it.label("id")}){repoIndex,repo->
-      MotionCard(modifier=Modifier.fillMaxWidth().padding(bottom=10.dp),shape=RoundedCornerShape(20.dp),onClick={onOpen(repo.label("name"),repo.label("default_branch"),"")},enabled=!s.busy){
+      val repoName=repo.label("name")
+      val picked=repoName in s.selectedRepos
+      val cardBg by animateColorAsState(if(picked)palette.primaryContainer else palette.surface,spring(dampingRatio=.85f,stiffness=700f),label="repo-bg")
+      val checkScale by animateFloatAsState(if(picked)1f else .55f,spring(dampingRatio=.52f,stiffness=760f),label="repo-check")
+      MotionCard(modifier=Modifier.fillMaxWidth().padding(bottom=10.dp),shape=RoundedCornerShape(20.dp),
+       colors=CardDefaults.cardColors(containerColor=cardBg),
+       border=if(picked)BorderStroke(1.dp,palette.primary) else null,
+       onClick={when{selectingRepos->onToggleSelectRepo(repoName);else->onOpen(repoName,repo.label("default_branch"),"")}},
+       onLongClick={onToggleSelectRepo(repoName)},enabled=!s.busy){
        Row(Modifier.fillMaxWidth().heightIn(min=86.dp).padding(horizontal=13.dp,vertical=17.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)){
-        Box(Modifier.size(46.dp).clip(RoundedCornerShape(16.dp)).background(if(repoIndex==0)palette.primaryContainer else palette.background),contentAlignment=Alignment.Center){ConceptIcon("folder",tint=if(repoIndex==0)palette.primary else palette.onSurfaceVariant,modifier=Modifier.size(23.dp))}
+        Box(Modifier.size(46.dp).clip(RoundedCornerShape(16.dp)).background(if(picked)palette.primary else if(repoIndex==0)palette.primaryContainer else palette.background),contentAlignment=Alignment.Center){
+         if(selectingRepos||picked)ConceptIcon("check","تحديد",tint=if(picked)palette.onPrimary else palette.onSurfaceVariant,modifier=Modifier.size(23.dp).scale(checkScale))
+         else ConceptIcon("folder",tint=if(repoIndex==0)palette.primary else palette.onSurfaceVariant,modifier=Modifier.size(23.dp))
+        }
         Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(6.dp)){
-         Text(repo.label("name"),fontSize=17.sp,lineHeight=22.sp,fontWeight=FontWeight.Bold,maxLines=1,overflow=TextOverflow.Ellipsis,style=TextStyle(fontFamily=DesignLatinFont,letterSpacing=0.sp,textDirection=TextDirection.ContentOrLtr))
+         Text(repoName,fontSize=17.sp,lineHeight=22.sp,fontWeight=FontWeight.Bold,maxLines=1,overflow=TextOverflow.Ellipsis,style=TextStyle(fontFamily=DesignLatinFont,letterSpacing=0.sp,textDirection=TextDirection.ContentOrLtr))
          Row(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalAlignment=Alignment.CenterVertically){BrowserTag(if(repo["archived"]?.jsonPrimitive?.boolean==true)"مؤرشف" else "عام");Text(repo.label("default_branch"),fontFamily=DesignLatinFont,fontSize=10.sp,lineHeight=16.sp,color=palette.onSurfaceVariant)}
         }
         ConceptIcon("arrow",tint=palette.onSurfaceVariant,modifier=Modifier.size(17.dp))
@@ -104,8 +119,8 @@ private fun JsonObject.label(key:String)=this[key]?.jsonPrimitive?.content?:""
       Surface(color=bg,shape=corners,border=BorderStroke(if(rowSelected)1.dp else .5.dp,if(rowSelected)palette.primary else palette.outlineVariant),
        modifier=Modifier.fillMaxWidth().enterMotion(path,index,generation=s.repo+s.path).pressMotion(rowSource,!s.busy)
         .combinedClickable(interactionSource=rowSource,indication=ripple(),enabled=!s.busy,
-         onClick={when{selecting&&canEdit->onToggleSelect(path);folder->onOpen(s.repo!!,s.branch,path);else->onPreview(f)}},
-         onLongClick={if(canEdit)onToggleSelect(path)})){
+         onClick={when{selecting->onToggleSelect(path);folder->onOpen(s.repo!!,s.branch,path);else->onPreview(f)}},
+         onLongClick={onToggleSelect(path)})){
        Row(Modifier.fillMaxWidth().heightIn(min=72.dp).padding(horizontal=10.dp,vertical=11.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)){
         Box(Modifier.width(37.dp).height(40.dp).clip(RoundedCornerShape(11.dp)).background(if(rowSelected)palette.primary else palette.background),contentAlignment=Alignment.Center){
          if(selecting||rowSelected)ConceptIcon("check","تحديد",tint=if(rowSelected)palette.onPrimary else palette.onSurfaceVariant,modifier=Modifier.size(23.dp).scale(checkScale))
@@ -159,6 +174,20 @@ private fun JsonObject.label(key:String)=this[key]?.jsonPrimitive?.content?:""
     }
     MotionIconButton(onClick=onClearClip){ConceptIcon("close","تفريغ الحافظة",tint=palette.onPrimaryContainer,modifier=Modifier.size(17.dp))}
    }
+  }
+ }
+}
+
+/** شريط إجراءات المستودعات المحددة: مسح وتسمية وأرشفة ونسخة، بنفس نابض شريط الملفات. */
+@Composable private fun RepoSelectionBar(s:GitHubState,selectingRepos:Boolean,palette:androidx.compose.material3.ColorScheme,onRepoDelete:()->Unit,onRepoRename:()->Unit,onRepoArchive:()->Unit,onRepoFork:()->Unit,onClearRepoSelection:()->Unit) {
+ AnimatedVisibility(selectingRepos,enter=expandVertically(tween(210))+fadeIn(tween(200)),exit=shrinkVertically(tween(180))+fadeOut(tween(140))){
+  Row(Modifier.fillMaxWidth().padding(bottom=13.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(2.dp)){
+   Text("${s.selectedRepos.size} محددين",fontSize=11.sp,lineHeight=17.6.sp,fontWeight=FontWeight.Bold,modifier=Modifier.weight(1f))
+   MotionIconButton(onClick=onRepoFork,enabled=!s.busy){ConceptIcon("copy","نسخة المستودع",modifier=Modifier.size(19.dp))}
+   MotionIconButton(onClick=onRepoRename,enabled=!s.busy&&s.selectedRepos.size==1){ConceptIcon("rename","تسمية المستودع",modifier=Modifier.size(19.dp))}
+   MotionIconButton(onClick=onRepoArchive,enabled=!s.busy&&s.selectedRepos.size==1){ConceptIcon("archive","أرشفة أو عكسها",modifier=Modifier.size(19.dp))}
+   MotionIconButton(onClick=onRepoDelete,enabled=!s.busy){ConceptIcon("trash","مسح المستودع",tint=palette.error,modifier=Modifier.size(19.dp))}
+   MotionIconButton(onClick=onClearRepoSelection){ConceptIcon("close","إلغاء التحديد",modifier=Modifier.size(19.dp))}
   }
  }
 }

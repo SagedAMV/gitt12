@@ -1,4 +1,4 @@
-@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class,androidx.compose.foundation.ExperimentalFoundationApi::class)
 package com.saged.githubvault.core.ui
 
 import android.animation.ValueAnimator
@@ -34,15 +34,17 @@ object VisualPolicy {
  colors:CardColors?=null,
  onClick:(()->Unit)?=null,
  enabled:Boolean=true,
+ onLongClick:(()->Unit)?=null,
+ border:BorderStroke?=null,
  content:@Composable ColumnScope.()->Unit
 ) {
  val palette=MaterialTheme.colorScheme
  val source=remember{MutableInteractionSource()}
  val base=colors?.containerColor?:palette.surface
- val interactive=if(onClick!=null)Modifier.pressMotion(source,enabled).clickable(interactionSource=source,indication=ripple(),enabled=enabled,onClick=onClick)else Modifier
+ val interactive=if(onClick!=null||onLongClick!=null)Modifier.pressMotion(source,enabled).combinedClickable(interactionSource=source,indication=ripple(),enabled=enabled,onClick=onClick?:{},onLongClick=onLongClick)else Modifier
  Surface(modifier=modifier.clip(shape).then(interactive),shape=shape,
   color=base.copy(alpha=VisualPolicy.CARD_ALPHA),contentColor=palette.onSurface,
-  border=BorderStroke(1.dp,palette.outlineVariant),shadowElevation=0.dp) {
+  border=border?:BorderStroke(1.dp,palette.outlineVariant),shadowElevation=0.dp) {
   Column(content=content)
  }
 }
