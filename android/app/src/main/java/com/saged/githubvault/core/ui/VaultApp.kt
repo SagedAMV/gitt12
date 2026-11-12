@@ -41,17 +41,19 @@ import java.util.Locale
 private data class Tab(val id:String,val label:String,val icon:ImageVector)
 private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("local","عندك",Icons.Rounded.OfflinePin),Tab("transfers","الشغل",Icons.Rounded.SwapVert),Tab("settings","حسابك",Icons.Rounded.PersonOutline))
 @Composable fun VaultApp(vm:VaultViewModel=viewModel(),theme:String,onTheme:(String)->Unit) {
+ val githubVm:com.saged.githubvault.feature.github.GitHubViewModel=viewModel()
  val s by vm.state.collectAsStateWithLifecycle()
  val local by vm.local.collectAsStateWithLifecycle()
  val transfers by vm.transfers.collectAsStateWithLifecycle()
  val context=LocalContext.current
  BackHandler(s.tab=="home" && s.repositoryId!=null) {if(s.path.isEmpty())vm.home() else vm.browse(s.repositoryId!!,s.path.substringBeforeLast('/',""))}
- val showShell=s.tab=="github" || s.signedIn || s.tab=="local" || s.tab=="transfers"
+ val showShell=s.tab=="github" || s.signedIn || s.tab=="local" || s.tab=="transfers" || s.tab=="settings"
  Scaffold(
   containerColor=MaterialTheme.colorScheme.background,
   snackbarHost={MotionNotice(s.message,{vm.message(null)},Modifier.padding(16.dp))},
-  topBar={if(showShell) CenterAlignedTopAppBar(colors=TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor=MaterialTheme.colorScheme.surface),title={Column(horizontalAlignment=Alignment.CenterHorizontally){Text("GitHub Vault",style=MaterialTheme.typography.titleMedium,fontWeight=FontWeight.Bold);Text("ملفاتك معك",style=MaterialTheme.typography.labelSmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}},navigationIcon={Icon(Icons.Rounded.Shield,contentDescription="ملفاتك بأمان",tint=MaterialTheme.colorScheme.primary,modifier=Modifier.padding(16.dp))},actions={if(s.signedIn)MotionIconButton(onClick={vm.tab("settings")}){Icon(Icons.Rounded.AccountCircle,"حسابك")}else MotionTextButton(onClick={vm.tab("home")}){Text("ادخل")}})},
-  bottomBar={if(showShell) NavigationBar(containerColor=MaterialTheme.colorScheme.surface) {tabs.forEach{t->MotionNavigationBarItem(selected=s.tab==t.id,onClick={if(s.signedIn||t.id in listOf("github","local","transfers"))vm.tab(t.id) else vm.tab("home")},icon={BadgedBox(badge={if(t.id=="transfers"&&transfers.any{it.status in listOf("QUEUED","RUNNING","RETRYING")})Badge()}){Icon(t.icon,t.label)}},label={Text(t.label)},alwaysShowLabel=true)}}}
+  topBar={if(showShell)DesignHeader(onAccount={vm.tab("settings")},modifier=Modifier.statusBarsPadding())},
+  bottomBar={if(showShell)DesignNavigation(s.tab,{vm.tab(it)},transfers.any{it.status in listOf("QUEUED","RUNNING","RETRYING")},modifier=Modifier.navigationBarsPadding())}
+
  ) {padding ->
   Column(Modifier.fillMaxSize().padding(padding)) {
    AnimatedVisibility(s.busy){LinearProgressIndicator(Modifier.fillMaxWidth())}
@@ -63,14 +65,14 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
     }
     AnimatedContent(targetState=s.tab,transitionSpec={ (fadeIn(tween(220))+slideInHorizontally{it/12}) togetherWith (fadeOut(tween(160))+slideOutHorizontally{-it/12}) },label="screen") {tab->
      when(tab){
-      "github"->com.saged.githubvault.feature.github.GitHubScreen()
+      "github"->com.saged.githubvault.feature.github.GitHubScreen(githubVm)
       "home"->RepositoriesScreen(s,vm)
       "local"->LocalScreen(local,vm,s.signedIn)
       "transfers"->TransfersScreen(transfers,vm)
       "users"->UsersScreen(s,vm)
       "admin"->AdminScreen(s,vm)
       "audit"->AuditScreen(s,vm)
-      else->SettingsScreen(s,vm,theme,onTheme)
+      else->if(s.signedIn)SettingsScreen(s,vm,theme,onTheme)else PublicAccountScreen(githubVm,theme,onTheme,{vm.tab("home")})
      }
     }
    }
@@ -105,11 +107,8 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
   MotionTextButton(onClick={vm.tab("local")},modifier=Modifier.align(Alignment.CenterHorizontally)){Icon(Icons.Rounded.OfflinePin,null);Spacer(Modifier.width(8.dp));Text("شوف ملفاتك")}
  }
 }
-@Composable private fun Hero(title:String,subtitle:String,icon:ImageVector) {
- MotionCard(colors=CardDefaults.cardColors(containerColor=MaterialTheme.colorScheme.primaryContainer),shape=RoundedCornerShape(24.dp),modifier=Modifier.fillMaxWidth()){
-  Row(Modifier.padding(24.dp),verticalAlignment=Alignment.CenterVertically){Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(8.dp)){Text(title,style=MaterialTheme.typography.headlineSmall,fontWeight=FontWeight.Bold);Text(subtitle,style=MaterialTheme.typography.bodyMedium)};Icon(icon,null,Modifier.size(42.dp),tint=MaterialTheme.colorScheme.primary)}
- }
-}
+@Composable private fun Hero(title:String,subtitle:String,icon:ImageVector) {com.saged.githubvault.feature.github.BrowserTitle(title,subtitle)}
+
 @Composable private fun Empty(title:String,subtitle:String,icon:ImageVector=Icons.Rounded.FolderOpen) {
  Column(Modifier.fillMaxWidth().padding(vertical=48.dp,horizontal=20.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(12.dp)){
   Icon(icon,null,Modifier.size(52.dp),tint=MaterialTheme.colorScheme.outline)
@@ -185,7 +184,7 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
  val folders=if(search.isBlank())filtered.filter{it.relativePath.startsWith(if(prefix.isEmpty())"" else "$prefix/")}.map{it.relativePath.removePrefix(if(prefix.isEmpty())"" else "$prefix/")}.filter{it.contains('/')}.map{it.substringBefore('/')}.distinct().sorted() else emptyList()
  val visible=if(search.isBlank())filtered.filter{it.relativePath.substringBeforeLast('/',"")==prefix} else filtered
  LazyColumn(Modifier.fillMaxSize().padding(horizontal=20.dp),verticalArrangement=Arrangement.spacedBy(12.dp),contentPadding=PaddingValues(vertical=16.dp)){
-  item{Hero("ملفاتك معك","عندك ${files.size} ملف",Icons.Rounded.OfflinePin)}
+  item{Hero("ملفاتك عندك","عندك ${files.size} ملف",Icons.Rounded.OfflinePin)}
   item{Text("ملفاتك تبقى هنا",style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
   item{Search(search,{search=it},"دوّر بملفاتك")}
   item{Row{if(prefix.isNotEmpty())MotionTextButton(onClick={prefix=prefix.substringBeforeLast('/',"")}){Text("ارجع")};if(signedIn || files.any{it.repositoryId.startsWith("public:saged7/")})MotionTextButton(onClick=vm::syncLocal){Icon(Icons.Rounded.Sync,null);Text("شوف الجديد")}}}
@@ -203,28 +202,8 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
   }
  }
 }
-@Composable private fun TransfersScreen(transfers:List<Transfer>,vm:VaultViewModel) {
- LazyColumn(Modifier.fillMaxSize().padding(horizontal=20.dp),verticalArrangement=Arrangement.spacedBy(12.dp),contentPadding=PaddingValues(vertical=16.dp)){
-  item{Hero("وش يصير؟","ارفع ونزّل وتابع",Icons.Rounded.SwapVert)}
-  if(transfers.isEmpty())item{Empty("مافي شغل","الشغل بيظهر هنا",Icons.Rounded.TaskAlt)}
-  items(transfers,key={it.id}){t->
-   val progress by animateFloatAsState(t.progress,tween(400),label="transfer")
-   val running=t.status in listOf("QUEUED","RUNNING","RETRYING")
-   MotionCard(Modifier.fillMaxWidth().animateContentSize(),shape=RoundedCornerShape(20.dp)){
-    Column(Modifier.padding(18.dp),verticalArrangement=Arrangement.spacedBy(10.dp)){
-     Row(verticalAlignment=Alignment.CenterVertically){Icon(if(t.kind !in listOf("DOWNLOAD","PUBLIC_DOWNLOAD"))Icons.Rounded.Upload else Icons.Rounded.Download,null,tint=MaterialTheme.colorScheme.primary);Text(t.label,Modifier.weight(1f).padding(horizontal=12.dp),maxLines=2,overflow=TextOverflow.Ellipsis);if(t.status=="SUCCEEDED")Icon(Icons.Rounded.CheckCircle,"خلص",tint=MaterialTheme.colorScheme.primary)}
-     Text(status(t.status),style=MaterialTheme.typography.labelMedium)
-     if(running){if(progress<=.1f)LinearProgressIndicator(Modifier.fillMaxWidth())else LinearProgressIndicator(progress={progress},modifier=Modifier.fillMaxWidth())}
-     t.error?.let{error->
-      var hidden by remember(t.id,error){mutableStateOf(false)}
-      MotionNotice(if(hidden)null else error,{hidden=true})
-     }
-     Row{if(t.status in listOf("FAILED","CANCELLED"))MotionTextButton(onClick={vm.retry(t)}){Icon(Icons.Rounded.Refresh,null);Text("جرّب ثاني")};if(running)MotionTextButton(onClick={vm.cancel(t)}){Text("خلّيه")}}
-    }
-   }
-  }
- }
-}
+@Composable private fun TransfersScreen(transfers:List<Transfer>,vm:VaultViewModel) {TransferContent(transfers,vm::retry,vm::cancel)}
+
 @Composable private fun UsersScreen(s:VaultState,vm:VaultViewModel) {
  var search by rememberSaveable{mutableStateOf("")};var dialog by remember{mutableStateOf("")};var target by remember{mutableStateOf<JsonObject?>(null)}
  if(dialog=="create")FormDialog("ضيف حساب",listOf("اسمك","باسورد مؤقت"),passwordIndices=setOf(1),onDismiss={dialog=""}){v->vm.userAction("create",extra=VaultViewModel.obj("username" to v[0].lowercase(),"password" to v[1]));dialog=""}
@@ -291,6 +270,7 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
  if(logout)Confirm("بتطلع؟","بنوقّف الشغل",{logout=false}){vm.logout();logout=false}
  Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),verticalArrangement=Arrangement.spacedBy(20.dp)){
   Hero(s.username,if(s.role=="ADMIN")"أنت المشرف" else "حسابك هنا",Icons.Rounded.VerifiedUser)
+  com.saged.githubvault.feature.github.GitHubTokenSettings()
   Text("الشكل",style=MaterialTheme.typography.titleMedium)
   Row(horizontalArrangement=Arrangement.spacedBy(8.dp)){listOf("system" to "زي الجهاز","light" to "فاتح","dark" to "غامق").forEach{(id,title)->MotionFilterChip(selected=theme==id,onClick={onTheme(id)},label={Text(title)})}}
   MotionOutlinedButton(onClick={password=true},modifier=Modifier.fillMaxWidth()){Icon(Icons.Rounded.Password,null);Spacer(Modifier.width(8.dp));Text("غيّر الباسورد")}
@@ -300,7 +280,7 @@ private val tabs=listOf(Tab("github","saged7",Icons.Rounded.FolderOpen),Tab("loc
   Text("رفع saged7: 90MiB",style=MaterialTheme.typography.bodySmall)
   HorizontalDivider()
   MotionTextButton(onClick={logout=true},modifier=Modifier.fillMaxWidth()){Icon(Icons.AutoMirrored.Rounded.Logout,null);Spacer(Modifier.width(8.dp));Text("اطلع")}
-  Text("Vault · 0.7.0",modifier=Modifier.align(Alignment.CenterHorizontally),style=MaterialTheme.typography.labelSmall,color=MaterialTheme.colorScheme.outline)
+  Text("Vault · 0.8.0",modifier=Modifier.align(Alignment.CenterHorizontally),style=MaterialTheme.typography.labelSmall,color=MaterialTheme.colorScheme.outline)
  }
 }
 @Composable private fun PasswordScreen(s:VaultState,vm:VaultViewModel,forced:Boolean) {

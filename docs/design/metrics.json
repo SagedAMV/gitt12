@@ -1,0 +1,37 @@
+{
+  "metric": "skimage RGB SSIM, default 7px window; full frame, data_range=255",
+  "width": 360,
+  "height": 640,
+  "native": "Compose + Robolectric SDK35, native Skia + Roborazzi; mdpi; not a physical device",
+  "reference": "Chromium HTML; status removed; SVG symbols retained; original design content unchanged",
+  "results": [
+    {
+      "screen": "repos-light",
+      "ssim": 0.9508393016462583,
+      "passes": true
+    },
+    {
+      "screen": "repos-dark",
+      "ssim": 0.9474711709955992,
+      "passes": true
+    },
+    {
+      "screen": "files-light",
+      "ssim": 0.9267950921753055,
+      "passes": true
+    },
+    {
+      "screen": "files-dark",
+      "ssim": 0.9187844983726117,
+      "passes": true
+    },
+    {
+      "screen": "error-light",
+      "ssim": 0.9334183537487228,
+      "passes": true
+    }
+  ],
+  "minimum": 0.9187844983726117,
+  "mean": 0.9354616833876996,
+  "all_pass": true
+}

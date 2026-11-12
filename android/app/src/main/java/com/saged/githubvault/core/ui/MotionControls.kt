@@ -21,7 +21,7 @@ object VisualPolicy {
  const val OPENING_MS=1150
 }
 
-@Composable private fun Modifier.pressMotion(source:MutableInteractionSource,enabled:Boolean=true):Modifier {
+@Composable internal fun Modifier.pressMotion(source:MutableInteractionSource,enabled:Boolean=true):Modifier {
  val pressed by source.collectIsPressedAsState()
  val target=VisualPolicy.pressedScale(pressed,enabled,ValueAnimator.areAnimatorsEnabled())
  val scale by animateFloatAsState(target,spring(dampingRatio=.68f,stiffness=650f),label="press-rebound")
@@ -59,9 +59,9 @@ object VisualPolicy {
  val source=remember{MutableInteractionSource()}
  OutlinedButton(onClick,modifier.pressMotion(source,enabled),enabled=enabled,shape=shape,interactionSource=source,content=content)
 }
-@Composable fun MotionTextButton(onClick:()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true,content:@Composable RowScope.()->Unit) {
+@Composable fun MotionTextButton(onClick:()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true,contentPadding:PaddingValues=ButtonDefaults.TextButtonContentPadding,content:@Composable RowScope.()->Unit) {
  val source=remember{MutableInteractionSource()}
- TextButton(onClick,modifier.pressMotion(source,enabled),enabled=enabled,interactionSource=source,content=content)
+ TextButton(onClick,modifier.pressMotion(source,enabled),enabled=enabled,contentPadding=contentPadding,interactionSource=source,content=content)
 }
 @Composable fun MotionIconButton(onClick:()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true,content:@Composable ()->Unit) {
  val source=remember{MutableInteractionSource()}
@@ -69,7 +69,8 @@ object VisualPolicy {
 }
 @Composable fun MotionFilterChip(selected:Boolean,onClick:()->Unit,label:@Composable ()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true) {
  val source=remember{MutableInteractionSource()}
- FilterChip(selected,onClick,label,modifier.pressMotion(source,enabled),enabled=enabled,interactionSource=source)
+ val p=MaterialTheme.colorScheme
+ Surface(onClick=onClick,modifier=modifier.pressMotion(source,enabled).heightIn(min=48.dp),enabled=enabled,shape=RoundedCornerShape(11.dp),color=if(selected)p.primaryContainer else p.surface,contentColor=if(selected)p.primary else p.onSurfaceVariant,border=BorderStroke(1.dp,if(selected)p.primary else p.outlineVariant),interactionSource=source){Box(Modifier.padding(horizontal=10.dp),contentAlignment=androidx.compose.ui.Alignment.Center){label()}}
 }
 @Composable fun MotionAssistChip(onClick:()->Unit,label:@Composable ()->Unit,modifier:Modifier=Modifier,enabled:Boolean=true,leadingIcon:(@Composable ()->Unit)?=null) {
  val source=remember{MutableInteractionSource()}

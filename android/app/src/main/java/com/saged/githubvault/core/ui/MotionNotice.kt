@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.saged.githubvault.feature.github.SimpleCopy
 
 /** One finite motion burst. Persistent readable guidance; never hides an error on a timer. */
@@ -30,24 +31,24 @@ import com.saged.githubvault.feature.github.SimpleCopy
   val ink=when(held.kind){"success"->MaterialTheme.colorScheme.onPrimaryContainer;"info"->MaterialTheme.colorScheme.onTertiaryContainer;else->MaterialTheme.colorScheme.onErrorContainer}
   val burst=remember{Animatable(0f)}
   LaunchedEffect(held.title){burst.snapTo(0f);burst.animateTo(1f,tween(720,easing=FastOutSlowInEasing))}
-  Surface(color=background,contentColor=ink,shape=RoundedCornerShape(22.dp),tonalElevation=2.dp,
+  Surface(color=background,contentColor=ink,shape=RoundedCornerShape(17.dp),border=androidx.compose.foundation.BorderStroke(1.dp,tint),tonalElevation=0.dp,
    modifier=Modifier.fillMaxWidth().semantics{liveRegion=LiveRegionMode.Polite}) {
-   Row(Modifier.padding(start=14.dp,end=6.dp,top=12.dp,bottom=12.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
-    Box(Modifier.size(52.dp),contentAlignment=Alignment.Center) {
+   Row(Modifier.padding(start=12.dp,end=12.dp,top=12.dp,bottom=12.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)) {
+    Box(Modifier.size(35.dp),contentAlignment=Alignment.Center) {
      Canvas(Modifier.fillMaxSize()) {
-      drawCircle(tint.copy(alpha=.10f))
+      drawCircle(tint.copy(alpha=.10f*(1-burst.value)))
       val t=burst.value
       drawCircle(tint.copy(alpha=.38f*(1-t)),radius=size.minDimension*(.25f+.25f*t),style=Stroke(2.dp.toPx()))
       drawCircle(tint.copy(alpha=.18f*(1-t)),radius=size.minDimension*(.20f+.22f*t),style=Stroke(1.dp.toPx()))
      }
-     Icon(when(held.kind){"success"->Icons.Rounded.VerifiedUser;"info"->Icons.Rounded.History;else->Icons.Rounded.ErrorOutline},contentDescription=null,tint=tint,modifier=Modifier.size(26.dp).scale(.82f+.18f*burst.value))
+     ConceptIcon(if(held.kind=="error")"alert" else "check",tint=tint,modifier=Modifier.size(23.dp).scale(.82f+.18f*burst.value))
     }
-    Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(3.dp)) {
-     Text(held.title,style=MaterialTheme.typography.titleSmall,fontWeight=FontWeight.Bold)
-     Text(held.hint,style=MaterialTheme.typography.bodySmall)
-     if(held.kind=="error")Text(held.reference,style=MaterialTheme.typography.labelSmall,color=ink.copy(alpha=.65f))
+    Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(0.dp)) {
+     Text(held.title,fontSize=12.sp,lineHeight=19.2.sp,fontWeight=FontWeight.Bold)
+     Text(held.hint,fontSize=10.sp,lineHeight=16.sp)
+     if(held.kind=="error")Text(held.reference,fontFamily=DesignLatinFont,fontSize=10.sp,lineHeight=16.sp,color=ink,modifier=Modifier.align(Alignment.End))
     }
-    MotionTextButton(onClick=onDismiss){Text("تمام",color=ink)}
+    MotionTextButton(onClick=onDismiss){Text("تمام",fontSize=10.sp,lineHeight=16.sp,color=ink)}
    }
   }
  }

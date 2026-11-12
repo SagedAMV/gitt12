@@ -1,0 +1,16 @@
+{
+  "screen_pixels": [
+    1080,
+    2400
+  ],
+  "assumed_density_dpi": 440,
+  "assumed_status_bar_dp": 24,
+  "assumed_three_button_navigation_dp": 48,
+  "content_pixels": [
+    1080,
+    2202
+  ],
+  "sdk": 35,
+  "physical_device": false,
+  "miui": false
+}

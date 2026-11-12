@@ -11,3 +11,7 @@ local.properties
 node_modules/
 .tooling/
 *.log
+
+# Local emulator diagnostic scratch data
+docs/emulator09/emulator-boot-logcat.txt
+docs/emulator09/boot.png

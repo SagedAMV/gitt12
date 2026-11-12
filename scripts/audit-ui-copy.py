@@ -17,6 +17,6 @@ for path in sorted(main.rglob('*')):
   rows.append(dict(file=str(path.relative_to(root)),line=text.count('\n',0,match.start())+1,text=value,words=words,template='$' in value))
 violations=[r for r in rows if r['words']>3]
 report={'scope':'Every Kotlin/XML app source; Arabic literals and template fragments; all dynamic UI templates manually reviewed','scanned_files':sum(1 for p in main.rglob('*') if p.suffix in {'.kt','.xml'}),'arabic_occurrences':len(rows),'unique_literals':len(set(r['text'] for r in rows)),'violations':violations,'entries':rows,'external_data':'Filenames, paths, usernames, file previews, audit values and timestamps stay intact; they are not application copy.'}
-(root/'docs/UI_COPY_AUDIT_0.7.0.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+(root/'docs/UI_COPY_AUDIT_0.8.0.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(json.dumps({k:v for k,v in report.items() if k!='entries'},ensure_ascii=False,indent=2))
 sys.exit(bool(violations))
