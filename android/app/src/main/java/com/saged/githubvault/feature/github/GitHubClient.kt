@@ -56,6 +56,10 @@ class GitHubClient(context:Context?=null,private val host:String="api.github.com
  private suspend fun json(path:String,query:Map<String,String> = emptyMap(),token:String?=null,method:String="GET",payload:JsonObject?=null):JsonElement=withContext(Dispatchers.IO){
   client.newCall(request(path,query,token=token,method=method,payload=payload)).execute().use{r->if(!r.isSuccessful)failure(r);Json.parseToJsonElement(r.body?.string()?:error("مافي رد"))}
  }
+ /** لعمليات الرد بدون جسم (204/202/200): تتحقق من النجاح وتغلق الرد دون تفكيك JSON. */
+ private suspend fun status(path:String,token:String,method:String,payload:JsonObject?=null):Int=withContext(Dispatchers.IO){
+  client.newCall(request(path,token=token,method=method,payload=payload)).execute().use{r->if(!r.isSuccessful)failure(r);r.code}
+ }
  suspend fun repositories(page:Int):List<JsonObject> {
   require(page in 1..1000)
   return json("/users/${GitHubPolicy.OWNER}/repos",mapOf("type" to "owner","sort" to "updated","per_page" to "100","page" to page.toString())).jsonArray.map{it.jsonObject}.filter{it["private"]?.jsonPrimitive?.boolean==false && it["owner"]?.jsonObject?.get("login")?.jsonPrimitive?.content.equals(GitHubPolicy.OWNER,true)}
@@ -83,6 +87,12 @@ class GitHubClient(context:Context?=null,private val host:String="api.github.com
   require(result["truncated"]?.jsonPrimitive?.boolean!=true){"المستودع كبير مرّة"}
   return buildJsonObject{result.getValue("tree").jsonArray.forEach{e->val v=e.jsonObject;if(v["type"]?.jsonPrimitive?.content=="blob"&&v["mode"]?.jsonPrimitive?.content!="120000")put(v.getValue("path").jsonPrimitive.content,v.getValue("sha"))}}
  }
+ /** خريطة مسار→sha لبكل ملفات المستودع، بجلب واحد؛ تستخدمها عمليات الشجرة لتفكيك المجلدات. */
+ suspend fun treePaths(repo:String):Map<String,String> {
+  val out=LinkedHashMap<String,String>()
+  versions(repo).forEach{(k,v)->out[k]=v.jsonPrimitive.content}
+  return out
+ }
  suspend fun blob(repo:String,sha:String):Response=withContext(Dispatchers.IO){
   val r=client.newCall(request(GitHubPolicy.root(repo)+"/git/blobs/"+GitHubPolicy.sha(sha),accept="application/vnd.github.raw+json")).execute()
   if(!r.isSuccessful)failure(r);r
@@ -104,6 +114,25 @@ class GitHubClient(context:Context?=null,private val host:String="api.github.com
   require(user["login"]?.jsonPrimitive?.content.equals(GitHubPolicy.OWNER,true)){"ادخل بحساب saged7"}
   json("/user/repos",token=token,method="POST",payload=buildJsonObject{put("name",name);put("private",false);put("auto_init",true)})
  }
+ /** حذف مستودع نهائي — يتطلب Administration: write (وللتوكن الكلاسيكي delete_repo). */
+ suspend fun deleteRepository(name:String) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name),token,"DELETE")
+ }
+ /** إعادة تسمية مستودع — GitHub يحوّل روابط git القديمة تلقائياً. */
+ suspend fun renameRepository(name:String,newName:String) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name),token,"PATCH",buildJsonObject{put("name",GitHubPolicy.repo(newName.trim()))})
+ }
+ suspend fun setArchived(name:String,archived:Boolean) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name),token,"PATCH",buildJsonObject{put("archived",archived)})
+ }
+ /** نسخة كاملة من المستودع داخل نفس الحساب عبر fork — يرجع 202 والنسخة تجهز بالخلفية. */
+ suspend fun forkRepository(name:String,target:String) {
+  val token=readToken()?:error("حط التوكن أول")
+  status(GitHubPolicy.root(name)+"/forks",token,"POST",buildJsonObject{put("name",GitHubPolicy.repo(target.trim()))})
+ }
  suspend fun upload(repo:String,path:String,branch:String,file:java.io.File,expected:String?,progress:(Long,Long)->Unit = {_,_->})=withContext(Dispatchers.IO) {
   require(file.length()<=GitHubPolicy.UPLOAD_LIMIT){"الملف فوق الحد"}
   GitHubPolicy.path(path);require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
@@ -114,6 +143,24 @@ class GitHubClient(context:Context?=null,private val host:String="api.github.com
   expected?.let{GitHubPolicy.sha(it)}
   val body=StreamingUploadBody(file,path,branch,expected,progress=progress)
   val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token).newBuilder().put(body).build()
+  client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
+ }
+ /** كتابة ملف داخل شجرة المستودع (نسخ/لصق/تسمية/مجلد جديد): المحتوى متدفّق بنفس حد 90MiB. */
+ suspend fun writeFile(repo:String,path:String,branch:String,file:java.io.File,sha:String?,message:String)=withContext(Dispatchers.IO) {
+  require(file.length()<=GitHubPolicy.UPLOAD_LIMIT){"الملف فوق الحد"}
+  GitHubPolicy.path(path);require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
+  val token=readToken()?:error("حط التوكن أول")
+  val body=StreamingUploadBody(file,path,branch,sha,message)
+  val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token).newBuilder().put(body).build()
+  client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
+ }
+ /** مسح ملف بـ sha المعلوم: PUT للنسخة ثم DELETE بطلب واحد لكل ملف. */
+ suspend fun removeFile(repo:String,path:String,branch:String,sha:String)=withContext(Dispatchers.IO) {
+  GitHubPolicy.path(path);GitHubPolicy.sha(sha)
+  require(path.isNotBlank() && path!=".git" && !path.startsWith(".git/"))
+  val token=readToken()?:error("حط التوكن أول")
+  val payload=buildJsonObject{put("message","Delete $path from GitHub Vault");put("sha",sha);put("branch",branch)}
+  val req=request(GitHubPolicy.root(repo)+"/contents/$path",token=token,method="DELETE",payload=payload)
   client.newCall(req).execute().use{if(!it.isSuccessful)failure(it)}
  }
 }
