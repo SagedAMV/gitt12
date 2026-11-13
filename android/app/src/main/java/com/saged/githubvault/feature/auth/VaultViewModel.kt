@@ -78,7 +78,7 @@ class VaultViewModel(application:Application):AndroidViewModel(application) {
  private suspend fun queue(kind:String,repo:String,label:String,payload:JsonObject) {
   val id=UUID.randomUUID().toString();app.database.transfers().put(Transfer(id,kind,repo,label,payload.toString()));TransferWorker.enqueue(app,id)
  }
- fun retry(t:Transfer)=task{app.database.transfers().update(t.id,"QUEUED",0f);if(t.kind in listOf("PUBLIC_DOWNLOAD","DIRECT_UPLOAD","TREE_EDIT"))com.saged.githubvault.feature.github.PublicTransferWorker.enqueue(app,t.id,t.kind=="DIRECT_UPLOAD") else TransferWorker.enqueue(app,t.id)}
+ fun retry(t:Transfer)=task{app.database.transfers().update(t.id,"QUEUED",0f);if(t.kind in listOf("PUBLIC_DOWNLOAD","DIRECT_UPLOAD"))com.saged.githubvault.feature.github.PublicTransferWorker.enqueue(app,t.id,t.kind=="DIRECT_UPLOAD") else TransferWorker.enqueue(app,t.id)}
  fun cancel(t:Transfer){WorkManager.getInstance(app).cancelUniqueWork(t.id);viewModelScope.launch{app.database.transfers().update(t.id,"CANCELLED",0f,"وقفناها")}}
  fun upload(uris:List<Uri>,folder:Boolean=false)=task {
   val repo=mutable.value.repositoryId?:return@task;val prefix=mutable.value.path

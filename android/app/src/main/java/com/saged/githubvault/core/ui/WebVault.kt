@@ -31,8 +31,6 @@ private fun JsonObject.str(key:String)=this[key]?.jsonPrimitive?.content?:""
 /** Only packaged, same-origin main-frame HTML can invoke the bridge. No web tokens or remote pages. */
 @SuppressLint("SetJavaScriptEnabled")
 @Composable fun WebVault(theme:String,onTheme:(String)->Unit,vm:VaultViewModel=viewModel(),github:GitHubViewModel=viewModel()) {
- var nativeFallback by remember { mutableStateOf(false) }
- if(nativeFallback){VaultApp(theme=theme,onTheme=onTheme,vm=vm);return}
  val context=LocalContext.current
  val systemDark=androidx.compose.foundation.isSystemInDarkTheme()
  val dark=theme=="dark"||(theme=="system"&&systemDark)
@@ -57,7 +55,6 @@ private fun JsonObject.str(key:String)=this[key]?.jsonPrimitive?.content?:""
  var painted by remember{mutableStateOf(false)}
  var problem by remember{mutableStateOf<String?>(null)}
  var attempt by remember{mutableIntStateOf(0)}
- var recoveryMenu by remember{mutableStateOf(false)}
  val engine=remember { runCatching { WebViewCompat.getCurrentWebViewPackage(context)?.versionName?:"unknown" }.getOrDefault("unavailable") }
  LaunchedEffect(attempt) { delay(12000);if(!painted||!ready)problem=if(!pageLoaded)"W01"else if(!ready)"W02"else "W03" }
  var pending by remember{mutableStateOf<List<Uri>?>(null)}
@@ -130,11 +127,8 @@ private fun JsonObject.str(key:String)=this[key]?.jsonPrimitive?.content?:""
   }
  }
  BackHandler {
-  if(!painted||problem!=null)nativeFallback=true
-  else if(s.tab=="github"&&g.repo==null)recoveryMenu=true
-  else browser?.evaluateJavascript("window.handleBack && window.handleBack();",null)
+  browser?.evaluateJavascript("window.handleBack && window.handleBack();",null)
  }
- if(recoveryMenu)AlertDialog(onDismissRequest={recoveryMenu=false},title={Text("خيارات العرض")},text={Column{Text("الواجهة ما ظهرت؟");Text("WebView: $engine",style=MaterialTheme.typography.bodySmall)}},confirmButton={TextButton(onClick={recoveryMenu=false;nativeFallback=true}){Text("افتح البديل")}},dismissButton={Row{TextButton(onClick={(context as? android.app.Activity)?.finish()}){Text("سكّر التطبيق")};TextButton(onClick={recoveryMenu=false}){Text("خلّيه")}}})
  if(pending!=null)AlertDialog(onDismissRequest={pending=null},title={Text("نرفع الملفات؟")},text={Column{Text("الموجود ممكن يتبدّل");Text(if(uploadPublic)"حدّه 90MiB"else "حدّه 8MiB");Text(uploadTarget);Text("${pending!!.size} ملفات")}},confirmButton={TextButton(onClick={val target=if(uploadPublic)"${g.repo}/${g.branch}/${g.path}"else "${s.repositoryId}/${s.path}";if(target==uploadTarget){if(uploadPublic)github.upload(pending!!)else vm.upload(pending!!,uploadFolder)}else vm.message("المسار مش مضبوط");pending=null}){Text("ارفعها")}},dismissButton={TextButton(onClick={pending=null}){Text("خلّيه")}})
  Box(Modifier.fillMaxSize().systemBarsPadding().displayCutoutPadding().imePadding()) {
  key(attempt) {
@@ -176,8 +170,6 @@ private fun JsonObject.str(key:String)=this[key]?.jsonPrimitive?.content?:""
     else {Text("الواجهة ما فتحت",style=MaterialTheme.typography.titleLarge);Spacer(Modifier.height(10.dp));Text("رمز: $problem");Text("WebView: $engine",style=MaterialTheme.typography.bodySmall)}
     Spacer(Modifier.height(24.dp))
     Button(onClick={ready=false;pageLoaded=false;painted=false;problem=null;attempt++},modifier=Modifier.fillMaxWidth()){Text("جرّب ثاني")}
-    Spacer(Modifier.height(8.dp))
-    OutlinedButton(onClick={nativeFallback=true},modifier=Modifier.fillMaxWidth()){Text("افتح البديل")}
     if(problem!=null){Spacer(Modifier.height(12.dp));Text("صوّر هذي الشاشة",style=MaterialTheme.typography.bodySmall)}
    }
   }

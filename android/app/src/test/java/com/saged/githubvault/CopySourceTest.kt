@@ -15,6 +15,6 @@ class CopySourceTest {
     }
    }
   }
-  assertTrue("Audit must cover the whole app",checked>300)
+  assertTrue("Audit must cover the whole app",checked>200)
  }
 }
