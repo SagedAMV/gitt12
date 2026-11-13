@@ -1,0 +1,87 @@
+# Maestro flow — GitHub Vault v1.2.1
+# التشغيل: maestro test .maestro/main-flow.yaml
+# يفترض: جهاز/محاكي متصل عبر adb وتطبيق GitHubVault مثبّت
+
+appId: com.saged.githubvault
+name: نظام التحديد وعمليات الملفات
+
+---
+# 1) التطبيق يفتح وتظهر مستودعات saged7 الحقيقية
+- launchApp
+- waitForAnimationToEnd
+- takeScreenshot: 01-repos
+
+---
+# 2) فتح مستودع واختيار ملف بالضغط المطوّل — شريط «محددين» يظهر
+- tapOn:
+    text: '.*sageer.*'
+    regex: true
+- waitForAnimationToEnd
+- takeScreenshot: 02-repo-files
+- longPressOn:
+    id: '.*fileopen.*'
+    regex: true
+- waitForAnimationToEnd
+- takeScreenshot: 03-selection-bar
+
+---
+# 3) تحديد ملف آخر بالنقر (وضع التحديد مفعّل)
+- tapOn:
+    id: '.*fileopen.*'
+    index: 1
+- takeScreenshot: 04-two-selected
+
+---
+# 4) مودال «مجلد جديد»
+- tapOn:
+    text: 'مجلد جديد'
+- waitForAnimationToEnd
+- takeScreenshot: 05-mkdir-modal
+- tapOn:
+    text: 'خلّيه'
+
+---
+# 5) مودال التسمية (يتطلب تحديد واحد)
+- tapOn:
+    text: 'سمّه'
+- waitForAnimationToEnd
+- takeScreenshot: 06-rename-modal
+- tapOn:
+    text: 'خلّيه'
+
+---
+# 6) تأكيد المسح ثم إلغاء التحديد
+- tapOn:
+    text: 'امسح'
+- waitForAnimationToEnd
+- takeScreenshot: 07-delete-confirm
+- tapOn:
+    text: 'خلّيه'
+- tapOn:
+    text: 'خلّيه'
+
+---
+# 7) تحديد مستودع بالضغط المطوّل — شريط المستودعات
+- tapOn:
+    text: 'ارجع'
+- longPressOn:
+    id: '.*card repo.*'
+    regex: true
+- waitForAnimationToEnd
+- takeScreenshot: 08-repo-selection-bar
+
+---
+# 8) بوابة التوكن: «نسخ» بدون توكن تفتح مودال التوكن
+- tapOn:
+    text: 'نسخة'
+- waitForAnimationToEnd
+- takeScreenshot: 09-token-gate
+- tapOn:
+    text: 'خلّيه'
+
+---
+# 9) تبويب «الشغل» — أعمال النقل
+- tapOn:
+    text: 'الشغل'
+- waitForAnimationToEnd
+- takeScreenshot: 10-transfers
